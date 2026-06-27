@@ -1,0 +1,4 @@
+# Ignore local project brief documents & instruction guidelines
+Instructions.MD
+instructions.md
+*.pdf
