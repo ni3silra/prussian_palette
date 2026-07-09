@@ -25,11 +25,11 @@ const paintings = [
       'Care': 'Keep from direct sunlight · Frame behind UV glass'
     },
     images: [
-      "Asha Rodrigues Artistry/Original ART/A Brief Moment/1.png",
-      "Asha Rodrigues Artistry/Original ART/A Brief Moment/2.png",
-      "Asha Rodrigues Artistry/Original ART/A Brief Moment/3.png",
-      "Asha Rodrigues Artistry/Original ART/A Brief Moment/4.png",
-      "Asha Rodrigues Artistry/Original ART/A Brief Moment/5.png"
+      "images/art/A Brief Moment/1.png",
+      "images/art/A Brief Moment/2.png",
+      "images/art/A Brief Moment/3.png",
+      "images/art/A Brief Moment/4.png",
+      "images/art/A Brief Moment/5.png"
     ]
   },
   {
@@ -52,10 +52,10 @@ const paintings = [
       'Care': 'Keep from direct sunlight · Frame behind UV glass'
     },
     images: [
-      "Asha Rodrigues Artistry/Original ART/Somewhere in Blue/1.png",
-      "Asha Rodrigues Artistry/Original ART/Somewhere in Blue/2.png",
-      "Asha Rodrigues Artistry/Original ART/Somewhere in Blue/3.png",
-      "Asha Rodrigues Artistry/Original ART/Somewhere in Blue/4.png"
+      "images/art/Somewhere in Blue/1.png",
+      "images/art/Somewhere in Blue/2.png",
+      "images/art/Somewhere in Blue/3.png",
+      "images/art/Somewhere in Blue/4.png"
     ]
   },
   {
@@ -78,10 +78,10 @@ const paintings = [
       'Care': 'Keep from direct sunlight · Frame behind UV glass'
     },
     images: [
-      "Asha Rodrigues Artistry/Original ART/Still Standing/1.png",
-      "Asha Rodrigues Artistry/Original ART/Still Standing/2.png",
-      "Asha Rodrigues Artistry/Original ART/Still Standing/3.png",
-      "Asha Rodrigues Artistry/Original ART/Still Standing/4.png"
+      "images/art/Still Standing/1.png",
+      "images/art/Still Standing/2.png",
+      "images/art/Still Standing/3.png",
+      "images/art/Still Standing/4.png"
     ]
   }
 ];
