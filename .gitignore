@@ -2,3 +2,12 @@
 Instructions.MD
 instructions.md
 *.pdf
+*.md
+Asha Rodrigues Artistry/*/*
+assets/*
+req/*
+.claude/*
+node_modules/*
+
+.codex/*
+.genkit/*

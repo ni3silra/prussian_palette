@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meet Asha Rodrigues — a self-taught watercolour and mixed-media artist based in Frankfurt, painting nature, stillness and the beauty of everywhere she wanders." />
+  <meta name="keywords" content="Asha Rodrigues, watercolour artist, abstract art, Frankfurt artist, botanical paintings, art collector" />
+  <meta property="og:title" content="About Asha — Asha Rodrigues Artistry" />
+  <meta property="og:description" content="Art did not find me — it saved me. Read Asha's story." />
+  <meta property="og:type" content="website" />
+  <title>About Asha — Asha Rodrigues Artistry</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=Overpass+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            prussian: {
+              DEFAULT: '#003153',
+              mid: '#1A4A6B',
+              lt: '#4A8FBF'
+            },
+            olive: '#6B7B3A',
+            sage: '#A8B87A',
+            ivory: '#FAF6F0',
+            bgalt: '#F0EAE0',
+            darkbg: '#0a1017',
+            darkcard: '#121b26',
+            darkalt: '#162130',
+          },
+          fontFamily: {
+            title: ['"Great Vibes"', 'cursive'],
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+            accent: ['"Overpass Mono"', 'monospace'],
+          },
+          animation: {
+            blob: 'blob 10s infinite',
+            float: 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0) rotate(var(--r, 0deg))' },
+              '50%': { transform: 'translateY(-10px) rotate(var(--r, 0deg))' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar and base utilities not easily done via config */
+    @layer base {
+      body {
+        @apply font-body text-gray-800 bg-ivory dark:bg-darkbg dark:text-gray-200 transition-colors duration-300 overflow-x-hidden;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-display text-gray-900 dark:text-gray-100;
+      }
+      .scroll-progress {
+        @apply fixed top-0 left-0 h-1 bg-prussian dark:bg-prussian-lt z-50 origin-left;
+        transform: scaleX(0);
+        transition: transform 0.1s linear;
+      }
+    }
+    
+    /* Glassmorphism utilities */
+    .glass-panel {
+      @apply bg-white/40 dark:bg-darkcard/40 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl;
+    }
+    
+    .glass-nav {
+      @apply bg-ivory/60 dark:bg-darkbg/60 backdrop-blur-xl border-b border-white/20 dark:border-white/5;
+    }
+  </style>
+</head>
+<body class="antialiased relative">
+
+  <!-- Animated Background Blobs for Glassmorphism Context -->
+  <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none mix-blend-multiply dark:mix-blend-screen opacity-50 dark:opacity-20 transition-opacity duration-500">
+    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-sage/30 blur-3xl animate-blob"></div>
+    <div class="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-prussian-lt/20 blur-3xl animate-blob" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-olive/20 blur-3xl animate-blob" style="animation-delay: 4s;"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════════════ -->
+  <header id="siteHeader" class="fixed w-full top-0 z-40 transition-all duration-300 glass-nav shadow-sm" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="flex items-center gap-3 group" aria-label="Asha Rodrigues Artistry — Home">
+          <img src="Asha Rodrigues Artistry/LOGO/1.png" alt="Asha Rodrigues Artistry Logo" class="h-10 w-10 object-contain drop-shadow-md" onerror="this.style.display='none'" />
+          <span class="font-display text-xl tracking-wide group-hover:text-prussian-lt transition-colors">Asha Rodrigues Artistry</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+          <a href="about.html" class="text-sm font-medium text-prussian-lt transition-colors" aria-current="page">About</a>
+          <div class="relative group">
+            <a href="shop.html" class="text-sm font-medium hover:text-prussian-lt transition-colors flex items-center gap-1">
+              Shop
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+            <div class="absolute left-0 mt-2 w-48 glass-panel rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform translate-y-2 group-hover:translate-y-0">
+              <div class="py-1">
+                <a href="shop.html#originals" class="block px-4 py-3 text-sm hover:bg-white/50 dark:hover:bg-white/5 transition-colors">Original Paintings</a>
+                <a href="shop.html#prints" class="block px-4 py-3 text-sm hover:bg-white/50 dark:hover:bg-white/5 transition-colors">Digital Prints</a>
+              </div>
+            </div>
+          </div>
+          <a href="connect.html" class="text-sm font-medium hover:text-prussian-lt transition-colors">Connect</a>
+          
+          <!-- Theme Toggle -->
+          <button id="themeToggle" class="p-2 rounded-full hover:bg-white/50 dark:hover:bg-white/10 transition-colors backdrop-blur-md" aria-label="Toggle Dark Mode">
+            <svg id="themeIconLight" class="w-5 h-5 hidden dark:block text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <svg id="themeIconDark" class="w-5 h-5 block dark:hidden text-prussian" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="hamburger" class="md:hidden p-2 relative z-50" aria-label="Open menu" aria-expanded="false">
+          <div class="space-y-1.5">
+            <span class="block w-6 h-0.5 bg-current transition-transform duration-300"></span>
+            <span class="block w-6 h-0.5 bg-current transition-opacity duration-300"></span>
+            <span class="block w-6 h-0.5 bg-current transition-transform duration-300"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav id="mobileNav" class="fixed inset-0 top-0 glass-panel z-30 transform translate-x-full transition-transform duration-500 overflow-y-auto flex flex-col items-center justify-center pt-20" aria-hidden="true">
+    <ul class="flex flex-col items-center justify-center space-y-8 text-2xl font-display w-full px-6">
+      <li><a href="about.html" class="text-prussian-lt">About</a></li>
+      <li class="text-center w-full">
+        <a href="shop.html" class="hover:text-prussian-lt block mb-4 transition-colors">Shop</a>
+        <div class="flex flex-col space-y-4 text-lg font-body text-gray-600 dark:text-gray-400 bg-white/20 dark:bg-black/20 p-6 rounded-2xl">
+          <a href="shop.html#originals" class="hover:text-prussian dark:hover:text-white transition-colors">Original Paintings</a>
+          <a href="shop.html#prints" class="hover:text-prussian dark:hover:text-white transition-colors">Digital Prints</a>
+        </div>
+      </li>
+      <li><a href="connect.html" class="hover:text-prussian-lt transition-colors">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════════════ -->
+  <main id="main-content" class="pt-20">
+
+    <!-- ── SECTION 1: HERO ───────────────────────────────── -->
+    <section class="relative min-h-[70vh] flex items-center justify-center text-center px-4 overflow-hidden" aria-label="Hero">
+
+      <!-- Background image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          class="w-full h-full object-cover object-center"
+          src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/Cuva.jpg"
+          alt="Asha in her element — nature and art"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-prussian/80 dark:bg-darkbg/90 mix-blend-multiply backdrop-blur-[2px]"></div>
+      </div>
+
+      <div class="relative z-10 max-w-3xl mx-auto mt-16 glass-panel p-10 sm:p-16 rounded-[3rem] border border-white/20 shadow-2xl bg-white/10 dark:bg-black/30">
+        <p class="font-accent text-sm tracking-[0.2em] uppercase mb-4 text-prussian-lt drop-shadow-md">The Story Behind The Art</p>
+        <h1 class="font-title text-5xl md:text-7xl leading-tight mb-6 drop-shadow-lg text-white">Art Did Not Find Me —<br>It Saved Me</h1>
+        <p class="font-display text-2xl md:text-3xl font-light mb-4 drop-shadow-md text-white/90">
+          Hello, I am Asha — and art gave me back to myself.
+        </p>
+        <p class="font-body text-lg text-white/80 font-light max-w-xl mx-auto drop-shadow-sm">
+          A self-taught artist. A lifelong dream. And a brush that changed everything.
+        </p>
+      </div>
+
+      <!-- Scroll cue -->
+      <a href="#story" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors" aria-label="Scroll down">
+        <div class="w-[1px] h-16 bg-white/30 relative overflow-hidden mb-2 rounded-full">
+          <div class="absolute top-0 left-0 w-full h-full bg-white origin-top animate-[ping_2s_ease-in-out_infinite]"></div>
+        </div>
+        <span class="font-accent text-xs tracking-widest uppercase">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ── SECTION 2: THE STORY ──────────────────────────── -->
+    <section class="py-24 relative" id="story" aria-label="Asha's story">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
+
+        <!-- Image Stack -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          <div class="glass-panel p-2 rounded-2xl shadow-xl transform hover:-translate-y-1 transition-transform duration-300">
+            <img
+              src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG_20260621_111019.jpg"
+              alt="Asha in her studio"
+              class="w-full h-auto rounded-xl"
+              loading="lazy"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="glass-panel p-2 rounded-2xl shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+              <img
+                src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0109.jpg"
+                alt="Asha's painting process"
+                class="w-full h-auto rounded-xl"
+                loading="lazy"
+              />
+            </div>
+            <div class="glass-panel p-2 rounded-2xl shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+              <img
+                src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0116.jpg"
+                alt="Asha with her art"
+                class="w-full h-auto rounded-xl grayscale hover:grayscale-0 transition-all duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          
+          <!-- Additional Photos (Moved from bottom) -->
+          <div class="glass-panel p-2 rounded-2xl shadow-xl transform hover:-translate-y-1 transition-transform duration-500 mt-2">
+             <img src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0107.jpg" alt="Asha's studio" class="w-full h-auto rounded-xl" loading="lazy" />
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+             <div class="glass-panel p-2 rounded-2xl shadow-md transform hover:-translate-y-1 transition-transform duration-500">
+               <img src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0136.jpg" alt="Painting detail" class="w-full h-auto rounded-xl" loading="lazy" />
+             </div>
+             <div class="glass-panel p-2 rounded-2xl shadow-md transform hover:-translate-y-1 transition-transform duration-500">
+               <img src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0138.jpg" alt="Nature inspiration" class="w-full h-auto rounded-xl" loading="lazy" />
+             </div>
+          </div>
+          <div class="glass-panel p-2 rounded-2xl shadow-lg transform hover:-translate-y-1 transition-transform duration-500">
+             <img src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0140.jpg" alt="Asha at work" class="w-full h-auto rounded-xl" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Story Text -->
+        <div class="lg:col-span-7 glass-panel p-8 sm:p-12 rounded-3xl bg-white/50 dark:bg-darkcard/50">
+          <div class="font-accent text-sm tracking-[0.2em] uppercase text-sage mb-3">My Story</div>
+          <h2 class="font-display text-4xl md:text-5xl mb-8 leading-tight text-gray-900 dark:text-white">A Brush. A Blank Sheet.<br>And Everything Changed.</h2>
+
+          <div class="space-y-6 font-light text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p>
+              There are moments in life when the noise becomes too loud. When the world feels too heavy
+              and you search — desperately sometimes — for something that makes sense again.
+              For me, that something was a brush, a sheet of paper and a small, quiet pool of paints.
+            </p>
+            <p>
+              Art has been my sanity. My softest place to land when life felt hard. My most honest
+              conversation when words were not enough. In those moments when I felt most lost — the
+              canvas always knew what to do with me.
+            </p>
+            <p>
+              There is something impossible to explain to anyone who has not felt it — the way time simply
+              disappears when you paint. You sit down and the whole world outside quietly stops
+              mattering. Hours pass like minutes. That place — I never want to leave it.
+            </p>
+            <p>
+              And then there is travel. The moment I step into a new place — a cobbled street in a
+              forgotten town, a coastal path where the sea meets grey stone, a market full of colours I had
+              never thought to put together — something shifts inside me.
+            </p>
+            <p>
+              Travel does not just inspire my art. It <em>fills</em> it. Every journey I take comes home with me —
+              hidden in a colour choice, whispered in a brushstroke, alive in the texture of a leaf I pressed
+              into my sketchbook somewhere far from home.
+            </p>
+            <p>
+              The truth is — this dream is not new. I wanted to be an artist long before life asked me to be
+              other things. It was a childhood whisper that never quite went away — through every season,
+              every chapter, every detour, it waited patiently. And finally — I chose to listen.
+            </p>
+            <p class="text-xl font-display italic text-prussian dark:text-prussian-lt mt-8 border-l-2 border-sage pl-6">
+              Today I paint from my place in Frankfurt — chasing the beauty I find in nature, the places I
+              wander, and the quiet joy of a brush finding its way across a blank sheet of paper.<br><br>
+              Every painting carries all of it — the healing, the wandering, the wonder — into your home.
+            </p>
+          </div>
+
+          <!-- Extra portrait -->
+          <div class="mt-12 rounded-2xl overflow-hidden max-w-sm shadow-xl glass-panel p-2 transform rotate-1 hover:rotate-0 transition-transform">
+            <img
+              src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG_20260622_174206_347.webp"
+              alt="Asha Rodrigues — artist portrait"
+              class="w-full aspect-[4/3] object-cover rounded-xl hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+      </div>
+
+
+
+    <!-- ── SECTION 3: FUN FACTS / CONFESSIONS ────────────── -->
+    <section class="py-24 relative overflow-hidden" id="confessions" aria-label="A few things about Asha">
+      <!-- Decor Blob -->
+      <div class="absolute inset-0 bg-gradient-to-tr from-olive/10 to-transparent dark:from-olive/5 pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 glass-panel p-8 rounded-3xl">
+          <div class="font-accent text-sm tracking-[0.2em] uppercase text-sage mb-3">Her Confessions</div>
+          <h2 class="font-display text-4xl md:text-5xl mb-4 text-gray-900 dark:text-white">A Few Things I Will<br>Let You In On</h2>
+          <p class="text-gray-600 dark:text-gray-300 font-light text-lg">For anyone who wants to know the person behind the paintings — here are six truths.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+
+          <div class="glass-panel bg-white/40 dark:bg-darkcard/40 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <span class="text-4xl block mb-6 drop-shadow-md">☕</span>
+            <p class="text-gray-800 dark:text-gray-200 font-light leading-relaxed">
+              I cannot start a painting without coffee. Not tea. Not water. Coffee — strong, warm and
+              sitting exactly within arm's reach of my brush. This is non-negotiable.
+            </p>
+          </div>
+
+          <div class="glass-panel bg-white/40 dark:bg-darkcard/40 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <span class="text-4xl block mb-6 drop-shadow-md">🌿</span>
+            <p class="text-gray-800 dark:text-gray-200 font-light leading-relaxed">
+              Nature walks are basically my art school. I have cancelled plans, missed trains and
+              completely lost track of time because a particular leaf or old architecture caught my eye.
+              No regrets. Never any regrets.
+            </p>
+          </div>
+
+          <div class="glass-panel bg-white/40 dark:bg-darkcard/40 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <span class="text-4xl block mb-6 drop-shadow-md">🌙</span>
+            <p class="text-gray-800 dark:text-gray-200 font-light leading-relaxed">
+              I have been known to paint until the room goes completely dark. Not because I forgot to
+              turn the light on — but because I genuinely did not notice the sun had set. Art does that.
+              And I hope it always will.
+            </p>
+          </div>
+
+          <div class="glass-panel bg-white/40 dark:bg-darkcard/40 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <span class="text-4xl block mb-6 drop-shadow-md">🎨</span>
+            <p class="text-gray-800 dark:text-gray-200 font-light leading-relaxed">
+              Some days the art flows like water. Other days the paper and I simply stare at each other.
+              Both days are part of the process. I have learned — slowly, imperfectly — to be gentle
+              with the quiet days. They are gathering something. They always are.
+            </p>
+          </div>
+
+          <div class="glass-panel bg-white/40 dark:bg-darkcard/40 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <span class="text-4xl block mb-6 drop-shadow-md">📄</span>
+            <p class="text-gray-800 dark:text-gray-200 font-light leading-relaxed">
+              My art supplies budget is best not discussed. What I will say is that a new sheet of
+              beautiful paper brings me a very specific and very genuine joy that is difficult to explain
+              to anyone who has not held one. You either understand this or you do not.
+            </p>
+          </div>
+
+          <div class="glass-panel bg-white/40 dark:bg-darkcard/40 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+            <span class="text-4xl block mb-6 drop-shadow-md">💧</span>
+            <p class="text-gray-800 dark:text-gray-200 font-light leading-relaxed">
+              Happy accidents are my favourite technique. The bleed I did not plan. The wash that went
+              somewhere unexpected. The colour that mixed itself into something I could never have
+              imagined intentionally. Some of my best work was painted by the water deciding for itself.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ── SECTION 5: WHAT YOU CAN DO NEXT ───────────────── -->
+    <section class="py-24 relative" id="next-steps" aria-label="What you can do next">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 glass-panel p-8 rounded-3xl">
+          <div class="font-accent text-sm tracking-[0.2em] uppercase text-sage mb-3">Now That You Know A Little About Me</div>
+          <h2 class="font-display text-4xl md:text-5xl mb-4 text-gray-900 dark:text-white">Here Is What You Can Do Next</h2>
+          <p class="text-gray-600 dark:text-gray-300 font-light text-lg">Every door leads somewhere beautiful. Choose yours.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:justify-center gap-8 max-w-4xl mx-auto">
+
+          <!-- Card 1: Shop -->
+          <a href="shop.html" class="group block relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-prussian/20 transition-all duration-300 glass-panel h-full flex flex-col transform hover:-translate-y-2">
+            <div class="h-48 overflow-hidden relative p-2 bg-white/20 dark:bg-black/20">
+              <div class="absolute inset-0 bg-prussian/20 dark:bg-darkbg/40 z-10 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500 rounded-t-3xl"></div>
+              <img
+                src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0190(1).jpg"
+                alt="Original paintings"
+                class="w-full h-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-8 flex flex-col flex-grow text-center items-center bg-white/40 dark:bg-darkcard/40 backdrop-blur-md border-t border-white/20 dark:border-white/5">
+              <span class="text-3xl mb-4 glass-panel w-16 h-16 rounded-full flex items-center justify-center -mt-16 z-20 shadow-lg">🎨</span>
+              <div class="font-accent text-[10px] tracking-widest uppercase text-sage mb-2">For Walls That Deserve More</div>
+              <h3 class="font-display text-2xl mb-3 text-gray-900 dark:text-white">Enter The Artistry</h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm font-light mb-6 flex-grow">Original art painted from nature and everywhere I wander.</p>
+              <span class="font-medium text-prussian dark:text-prussian-lt group-hover:underline decoration-2 underline-offset-4 transition-all mt-auto">Explore Paintings →</span>
+            </div>
+          </a>
+
+          <!-- Card 2: Connect -->
+          <a href="connect.html" class="group block relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-prussian/20 transition-all duration-300 glass-panel h-full flex flex-col transform hover:-translate-y-2">
+            <div class="h-48 overflow-hidden relative p-2 bg-white/20 dark:bg-black/20">
+              <div class="absolute inset-0 bg-prussian/20 dark:bg-darkbg/40 z-10 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500 rounded-t-3xl"></div>
+              <img
+                src="Asha Rodrigues Artistry/Website - Ideas and assets/Assests - Portfolio Pics/IMG-20260705-WA0203(1).jpg"
+                alt="Say hello to Asha"
+                class="w-full h-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-8 flex flex-col flex-grow text-center items-center bg-white/40 dark:bg-darkcard/40 backdrop-blur-md border-t border-white/20 dark:border-white/5">
+              <span class="text-3xl mb-4 glass-panel w-16 h-16 rounded-full flex items-center justify-center -mt-16 z-20 shadow-lg">💌</span>
+              <div class="font-accent text-[10px] tracking-widest uppercase text-sage mb-2">No Agenda. Just Art.</div>
+              <h3 class="font-display text-2xl mb-3 text-gray-900 dark:text-white">Send A Message</h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm font-light mb-6 flex-grow">No formalities. Just two people who love art having a conversation.</p>
+              <span class="font-medium text-prussian dark:text-prussian-lt group-hover:underline decoration-2 underline-offset-4 transition-all mt-auto">Say Hello →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NEWSLETTER STRIP ──────────────────────────────── -->
+    <section class="py-32 relative overflow-hidden" id="newsletter" aria-label="Join the newsletter">
+      <div class="absolute inset-0 bg-gradient-to-br from-prussian/20 to-sage/20 dark:from-prussian/40 dark:to-sage/10 mix-blend-multiply z-[-1]"></div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <div class="glass-panel p-10 sm:p-16 rounded-[3rem] shadow-2xl">
+          <div class="font-accent text-sm tracking-[0.2em] uppercase text-sage mb-4 drop-shadow-sm">Stay In Touch</div>
+          <h2 class="font-title text-6xl md:text-7xl mb-6 text-prussian dark:text-white drop-shadow-sm">
+            Join The Artistry Circle 🌿
+          </h2>
+          <p class="text-lg md:text-xl font-light italic text-gray-700 dark:text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Every few weeks I share studio sneak peeks, colour stories, free guides and new collection drops —
+            straight to your inbox. No spam. Just soul.
+          </p>
+          <form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto relative" aria-label="Newsletter signup">
+            <input 
+              type="email" 
+              placeholder="Your email address" 
+              class="flex-1 px-8 py-5 rounded-full text-gray-900 bg-white/70 dark:bg-black/50 border border-white/50 dark:border-white/10 backdrop-blur-md focus:ring-4 focus:ring-sage/50 outline-none transition-all shadow-inner placeholder-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required 
+              aria-label="Email address"
+            />
+            <button type="submit" class="px-10 py-5 bg-prussian/90 backdrop-blur-md hover:bg-prussian text-white rounded-full font-medium transition-all shadow-lg whitespace-nowrap">
+              Join The Circle →
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="glass-nav border-t-0 border-white/20 py-16 relative z-10 overflow-hidden" role="contentinfo">
+    <div class="absolute bottom-[-50%] left-1/2 -translate-x-1/2 w-[100vw] h-[50vh] bg-prussian/5 dark:bg-prussian/10 blur-[100px] z-[-1] rounded-t-[100%]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+        
+        <div class="md:col-span-5 glass-panel bg-white/30 dark:bg-black/20 p-8 rounded-3xl border-white/30 dark:border-white/5">
+          <img src="Asha Rodrigues Artistry/LOGO/1.png" alt="Asha Rodrigues Artistry" class="h-16 w-auto mb-6 drop-shadow-md" onerror="this.style.display='none'" />
+          <h3 class="font-display text-2xl mb-3 text-gray-900 dark:text-white">Asha Rodrigues Artistry</h3>
+          <p class="text-gray-700 dark:text-gray-400 text-sm leading-relaxed mb-8 max-w-sm font-light">
+            Watercolour &amp; mixed-media paintings rooted in nature, travel and the quiet beauty of everywhere I wander. Based in Frankfurt, reaching the whole world. 🌿
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-prussian hover:bg-white/60 dark:hover:text-white transition-all shadow-sm" aria-label="Instagram">
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-prussian hover:bg-white/60 dark:hover:text-white transition-all shadow-sm" aria-label="Pinterest">
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 lg:pl-8">
+          <h4 class="font-display font-bold text-2xl text-gray-900 dark:text-white mb-6 tracking-wide">Explore</h4>
+          <ul class="space-y-4 text-gray-700 dark:text-gray-400 font-light text-[15px]">
+            <li><a href="about.html" class="hover:text-prussian dark:hover:text-prussian-lt transition-colors inline-block transform hover:translate-x-1 duration-200">About Asha</a></li>
+            <li><a href="shop.html#originals" class="hover:text-prussian dark:hover:text-prussian-lt transition-colors inline-block transform hover:translate-x-1 duration-200">Original Paintings</a></li>
+            <li><a href="shop.html#prints" class="hover:text-prussian dark:hover:text-prussian-lt transition-colors inline-block transform hover:translate-x-1 duration-200">Digital Prints</a></li>
+            <li><a href="connect.html" class="hover:text-prussian dark:hover:text-prussian-lt transition-colors inline-block transform hover:translate-x-1 duration-200">Connect</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 glass-panel bg-white/20 dark:bg-black/10 p-8 rounded-3xl border-white/30 dark:border-white/5">
+          <h4 class="font-display font-bold text-2xl text-gray-900 dark:text-white mb-4 tracking-wide">The Artistry Circle</h4>
+          <p class="text-gray-700 dark:text-gray-400 text-sm mb-6 leading-relaxed font-light">
+            Join for studio sneak peeks, colour stories, free guides and new collection drops. No spam. Just soul. 🌿
+          </p>
+          <a href="#newsletter" class="inline-block px-8 py-3 glass-panel hover:bg-white/60 dark:hover:bg-white/10 rounded-full text-sm font-medium text-gray-900 dark:text-gray-200 transition-all text-center w-full">Join The Circle</a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-gray-300 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600 dark:text-gray-500 font-light">
+        <p>© 2026 Asha Rodrigues Artistry — Frankfurt, Germany 🌿</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-prussian dark:hover:text-white transition-colors">Privacy</a>
+          <a href="#" class="hover:text-prussian dark:hover:text-white transition-colors">Shipping &amp; Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
