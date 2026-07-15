@@ -1,5 +1,6 @@
 export default function myImageLoader({ src }) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const isProd = process.env.NODE_ENV === 'production';
+  const basePath = isProd ? '/prussian_palette' : '';
   if (src.startsWith('/')) {
     return `${basePath}${src}`;
   }
