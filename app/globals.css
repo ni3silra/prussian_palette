@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ── Tailwind v4 Theme (replaces tailwind.config.js) ─────────── */
+@theme inline {
+  /* Custom Colors */
+  --color-prussian: #262524; /* Warm charcoal for elegant text */
+  --color-prussian-lt: #4a4845; /* Soft warm dark gray */
+  --color-prussian-mid: #3a3836;
+  --color-sage: #8f8c85; /* Warm stone / taupe accent */
+  --color-sage-lt: #e0ddd6; /* Light stone for borders */
+  --color-olive: #a6a39b; /* Mid-tone neutral */
+  --color-ivory: #faf9f6; /* Beautiful warm paper/linen white */
+  --color-mint: #f4f3ef; /* Pale warm beige for soft backgrounds */
+  --color-darkbg: #141312;
+  --color-darkcard: #1f1e1d;
+  --color-darkalt: #162130;
+
+  /* Custom Fonts (CSS variables set by next/font) */
+  --font-title: var(--font-great-vibes), cursive;
+  --font-display: var(--font-cormorant-garamond), serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --font-accent: var(--font-overpass-mono), monospace;
+
+  /* Animations */
+  --animate-blob: blob 10s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+    50% { transform: translateY(-10px) rotate(var(--r, 0deg)); }
+  }
+}
+
+/* ── Base Styles ─────────────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* ── Glassmorphism Utilities ─────────────────────────────────── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 30px -10px rgba(26, 54, 41, 0.1), 0 4px 6px -4px rgba(26, 54, 41, 0.05);
+}
+
+.dark .glass-panel {
+  background: rgba(18, 27, 38, 0.4);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav {
+  background: rgba(252, 252, 251, 0.6);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.dark .glass-nav {
+  background: rgba(10, 16, 23, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Scroll Progress ─────────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  z-index: 50;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.1s linear;
+}
+
+/* ── Lightbox Styles ─────────────────────────────────────────── */
+.lightbox {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox.lightbox--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.carousel__thumb.active {
+  border-color: transparent;
+}
+
+/* ── Swiper Overrides ────────────────────────────────────────── */
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
