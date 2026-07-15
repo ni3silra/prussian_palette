@@ -45,6 +45,7 @@ export default function ArtworkCard({
           src={images[0]} 
           alt={title} 
           fill 
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-1000 group-hover:scale-105" 
         />
         
@@ -121,6 +122,7 @@ export default function ArtworkCard({
                         src={src} 
                         alt={`${title} - View ${index + 1}`} 
                         fill 
+                        sizes="(max-width: 768px) 100vw, 60vw"
                         className="object-contain drop-shadow-2xl"
                         priority={index === 0}
                       />

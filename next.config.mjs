@@ -1,11 +1,17 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.BASE_PATH || '';
+
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './imageLoader.js',
   },
-  basePath: process.env.BASE_PATH || '',
-  assetPrefix: process.env.BASE_PATH || '',
+  basePath: basePath,
+  assetPrefix: basePath,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   /* config options here */
   reactCompiler: true,
 };
