@@ -33,7 +33,7 @@ export default function Home() {
               <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">The Artist</p>
             </div>
 
-            <h2 className="font-title text-4xl lg:text-5xl leading-[1.2] mb-4 text-prussian dark:text-[#f0ede8] tracking-wide drop-shadow-sm">
+            <h2 className="font-title text-3xl sm:text-4xl lg:text-5xl leading-[1.2] mb-4 text-prussian dark:text-[#f0ede8] tracking-wide drop-shadow-sm">
               Hi, I&apos;m Asha.
             </h2>
 
@@ -56,7 +56,7 @@ export default function Home() {
               <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">Original Artistry</p>
             </div>
 
-            <h2 className="font-title text-4xl lg:text-5xl leading-[1.2] mb-4 text-prussian dark:text-[#f0ede8] tracking-wide drop-shadow-sm">
+            <h2 className="font-title text-3xl sm:text-4xl lg:text-5xl leading-[1.2] mb-4 text-prussian dark:text-[#f0ede8] tracking-wide drop-shadow-sm">
               Quiet Botanicals.<br />
               <span className="text-sage/90 dark:text-sage block my-1">Nature-Led.</span>
               Deeply Personal.
@@ -78,12 +78,12 @@ export default function Home() {
       </section>
 
       {/* ── NATURE COLLECTION ── */}
-      <section className="py-32 relative z-10 bg-[#eaf0ea]/80 dark:bg-[#0a3a30]/50" aria-label="Nature Collection">
+      <section className="py-20 md:py-32 relative z-10 bg-[#eaf0ea]/80 dark:bg-[#0a3a30]/50" aria-label="Nature Collection">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div className="max-w-2xl">
-              <h2 className="font-display text-4xl md:text-5xl leading-tight text-prussian dark:text-[#f0ede8] tracking-tight">Nature Collection —<br />Grounded &amp; Still</h2>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-prussian dark:text-[#f0ede8] tracking-tight">Nature Collection —<br />Grounded &amp; Still</h2>
             </div>
             <Link href="/shop" className="px-6 py-3 glass-panel bg-white/60 dark:bg-white/[0.10] hover:bg-white/80 dark:hover:bg-white/20 rounded-full text-sm font-medium text-prussian dark:text-[#f0ede8] transition-all shadow-md backdrop-blur-xl border border-white/60 dark:border-white/50">
               Explore Nature
@@ -146,12 +146,12 @@ export default function Home() {
       </section>
 
       {/* ── OCEAN COLLECTION ── */}
-      <section className="py-32 relative z-10 bg-[#e6f0f2]/80 dark:bg-[#071828]/50" aria-label="Ocean Collection">
+      <section className="py-20 md:py-32 relative z-10 bg-[#e6f0f2]/80 dark:bg-[#071828]/50" aria-label="Ocean Collection">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div className="max-w-2xl">
-              <h2 className="font-display text-4xl md:text-5xl leading-tight text-prussian dark:text-[#f0ede8] tracking-tight">Ocean Collection —<br />Fluid &amp; Deep</h2>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-prussian dark:text-[#f0ede8] tracking-tight">Ocean Collection —<br />Fluid &amp; Deep</h2>
             </div>
             <Link href="/shop" className="px-6 py-3 glass-panel bg-white/60 dark:bg-white/[0.10] hover:bg-white/80 dark:hover:bg-white/20 rounded-full text-sm font-medium text-prussian dark:text-[#f0ede8] transition-all shadow-md backdrop-blur-xl border border-white/60 dark:border-white/50">
               Explore Ocean
@@ -213,12 +213,12 @@ export default function Home() {
       </section>
 
       {/* ── MOUNTAIN COLLECTION ── */}
-      <section className="py-32 relative z-10 bg-[#f2efe9]/80 dark:bg-[#0c2e45]/50" aria-label="Mountain Collection">
+      <section className="py-20 md:py-32 relative z-10 bg-[#f2efe9]/80 dark:bg-[#0c2e45]/50" aria-label="Mountain Collection">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div className="max-w-2xl">
-              <h2 className="font-display text-4xl md:text-5xl leading-tight text-prussian dark:text-[#f0ede8] tracking-tight">Mountain Collection —<br />Quiet Summits</h2>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-prussian dark:text-[#f0ede8] tracking-tight">Mountain Collection —<br />Quiet Summits</h2>
             </div>
             <Link href="/shop" className="px-6 py-3 glass-panel bg-white/60 dark:bg-white/[0.10] hover:bg-white/80 dark:hover:bg-white/20 rounded-full text-sm font-medium text-prussian dark:text-[#f0ede8] transition-all shadow-md backdrop-blur-xl border border-white/60 dark:border-white/50">
               Explore Mountain

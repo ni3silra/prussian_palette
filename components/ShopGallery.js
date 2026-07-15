@@ -65,7 +65,7 @@ export default function ShopGallery() {
       </div>
 
       {/* Alternating Gallery */}
-      <div className="flex flex-col gap-32 pb-24">
+      <div className="flex flex-col gap-16 lg:gap-32 pb-24">
         {filteredPaintings.length > 0 ? (
           filteredPaintings.map((p, index) => {
             const isEven = index % 2 === 0;
@@ -93,7 +93,7 @@ export default function ShopGallery() {
                     <div className="w-12 h-[1px] bg-prussian/30 dark:bg-white/20 lg:hidden" />
                   </div>
 
-                  <h2 className="font-title text-4xl lg:text-5xl text-prussian dark:text-[#f0ede8] mb-6 leading-snug">{p.name}</h2>
+                  <h2 className="font-title text-3xl lg:text-5xl text-prussian dark:text-[#f0ede8] mb-6 leading-snug">{p.name}</h2>
 
                   <p className={`font-display text-xl text-prussian-lt/90 dark:text-[#a8a5a0] italic mb-10 max-w-md mx-auto ${isEven ? 'lg:mx-0' : 'lg:mr-0 lg:ml-auto'}`}>
                     &ldquo;{p.tagline}&rdquo;

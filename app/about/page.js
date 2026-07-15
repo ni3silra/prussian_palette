@@ -17,7 +17,7 @@ export default function AboutPage() {
               <div className="w-8 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
               <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">The Story Behind The Art</p>
             </div>
-            <h1 className="font-title text-4xl md:text-5xl lg:text-6xl leading-[1.15] mb-8 text-prussian dark:text-[#f0ede8] tracking-tight">
+            <h1 className="font-title text-3xl md:text-5xl lg:text-6xl leading-[1.15] mb-8 text-prussian dark:text-[#f0ede8] tracking-tight">
               Art Did Not Find Me —<br/>It Saved Me
             </h1>
             <p className="font-display text-2xl md:text-3xl text-prussian/90 dark:text-[#f0ede8]/80 mb-6 italic">
@@ -27,14 +27,14 @@ export default function AboutPage() {
               A self-taught artist. A lifelong dream. And a brush that changed everything.
             </p>
           </div>
-          <div className="relative h-[600px] w-full rounded-full overflow-hidden shadow-2xl">
+          <div className="relative h-[400px] md:h-[600px] w-full rounded-full overflow-hidden shadow-2xl">
             <Image src="/images/portfolio/IMG-20260705-WA0140.jpg" alt="Asha in her element" fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" />
           </div>
         </div>
       </section>
 
       {/* ── THE STORY ── */}
-      <section className="py-32 relative" id="story" aria-label="Asha's story">
+      <section className="py-20 md:py-32 relative" id="story" aria-label="Asha's story">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
 
           {/* Story Text */}
@@ -43,7 +43,7 @@ export default function AboutPage() {
               <div className="w-8 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
               <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">My Story</p>
             </div>
-            <h2 className="font-title text-4xl md:text-5xl mb-12 leading-tight text-prussian dark:text-[#f0ede8] tracking-wide">
+            <h2 className="font-title text-3xl md:text-5xl mb-12 leading-tight text-prussian dark:text-[#f0ede8] tracking-wide">
               A Brush. A Blank Sheet.<br/>And Everything Changed.
             </h2>
             <div className="space-y-8 font-body font-light text-lg text-prussian-lt/90 dark:text-[#a8a5a0] leading-[1.8] pl-0 md:pl-8 md:border-l border-prussian/20 dark:border-white/10">
@@ -58,18 +58,18 @@ export default function AboutPage() {
 
           {/* Image Stack */}
           <div className="lg:col-span-5 flex flex-col gap-8 relative mt-12 lg:mt-0">
-            <div className="w-full relative h-[450px] rounded-t-full overflow-hidden shadow-xl border border-prussian/10 dark:border-white/10">
+            <div className="w-full relative h-[300px] md:h-[450px] rounded-t-full overflow-hidden shadow-xl border border-prussian/10 dark:border-white/10">
               <Image src="/images/portfolio/Cuva.jpg" alt="Asha at work" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
             </div>
             <div className="grid grid-cols-2 gap-8">
-              <div className="w-full relative h-[250px] overflow-hidden shadow-lg border border-prussian/10 dark:border-white/10 rounded-br-[4rem]">
+              <div className="w-full relative h-[200px] md:h-[250px] overflow-hidden shadow-lg border border-prussian/10 dark:border-white/10 rounded-br-[4rem]">
                 <Image src="/images/portfolio/IMG-20260705-WA0109.jpg" alt="Asha's painting process" fill sizes="25vw" className="object-cover" />
               </div>
-              <div className="w-full relative h-[250px] overflow-hidden shadow-lg border border-prussian/10 dark:border-white/10 rounded-tl-[4rem]">
+              <div className="w-full relative h-[200px] md:h-[250px] overflow-hidden shadow-lg border border-prussian/10 dark:border-white/10 rounded-tl-[4rem]">
                 <Image src="/images/portfolio/IMG-20260705-WA0116.jpg" alt="Asha with her art" fill sizes="25vw" className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
             </div>
-            <div className="w-full relative h-[350px] rounded-b-[6rem] overflow-hidden shadow-xl border border-prussian/10 dark:border-white/10">
+            <div className="w-full relative h-[250px] md:h-[350px] rounded-b-[6rem] overflow-hidden shadow-xl border border-prussian/10 dark:border-white/10">
               <Image src="/images/portfolio/IMG_20260621_111019.jpg" alt="Asha in her studio" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CONFESSIONS ── */}
-      <section className="py-32 relative bg-white/40 dark:bg-[#0a2d45]/40" id="confessions" aria-label="A few things about Asha">
+      <section className="py-20 md:py-32 relative bg-white/40 dark:bg-[#0a2d45]/40" id="confessions" aria-label="A few things about Asha">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
             <div className="max-w-2xl">
@@ -114,7 +114,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── WHAT YOU CAN DO NEXT ── */}
-      <section className="py-32 relative bg-white/40 dark:bg-[#0a2d45]/40" id="next-steps" aria-label="What you can do next">
+      <section className="py-20 md:py-32 relative bg-white/40 dark:bg-[#0a2d45]/40" id="next-steps" aria-label="What you can do next">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16">
           <div className="text-center max-w-2xl mx-auto mb-24">
             <div className="flex items-center justify-center gap-3 mb-6">

@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   return (
-    <header className="absolute top-0 left-0 w-full p-4 sm:p-8 lg:p-10 z-50 flex items-center justify-between pointer-events-auto">
+    <header className="absolute top-0 left-0 w-full px-4 py-3 sm:p-8 lg:p-10 z-50 flex items-center justify-between pointer-events-auto">
 
       {/* Top Left Logo */}
       <div className="flex-1 flex justify-start">
@@ -14,7 +14,7 @@ export default function Header() {
             alt="Asha Rodrigues Artistry Logo"
             width={200}
             height={200}
-            className="absolute top-1/2 left-1/2 -translate-x-[40%] -translate-y-1/2 max-w-none w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-sm pointer-events-none dark:brightness-0 dark:invert"
+            className="absolute top-1/2 left-1/2 -translate-x-[40%] -translate-y-1/2 max-w-none w-[110px] h-[110px] sm:w-[200px] sm:h-[200px] object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-sm pointer-events-none dark:brightness-0 dark:invert"
             priority
           />
         </Link>
