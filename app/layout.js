@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
-import Image from "next/image";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -48,27 +48,45 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-      <html
-        lang="en"
-        className={`scroll-smooth light ${greatVibes.variable} ${cormorant.variable} ${dmSans.variable} ${overpassMono.variable}`}
-        data-scroll-behavior="smooth"
+    <html
+      lang="en"
+      className={`scroll-smooth ${greatVibes.variable} ${cormorant.variable} ${dmSans.variable} ${overpassMono.variable}`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Anti-FOUC: reads saved theme and applies .dark class before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('pp-theme');var d=window.matchMedia('(prefers-color-scheme:dark)').matches;if(t==='dark'||(t===null&&d)){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body
+        className="antialiased relative font-body text-gray-800 dark:text-[#f0ede8] transition-colors duration-300 overflow-x-hidden"
         suppressHydrationWarning
       >
-      <body className="antialiased relative font-body text-gray-800 transition-colors duration-300 overflow-x-hidden" suppressHydrationWarning>
-        {/* Full canvas sunshine orange/yellow background */}
-        <div className="absolute top-0 left-0 right-0 bottom-0 z-[-3] pointer-events-none bg-gradient-to-b from-[#fffae6] via-[#ffdcb3] to-[#ffaa80]"></div>
+        {/* Background gradient — light: warm canvas, dark: deep Prussian Blue */}
+        <div className="absolute top-0 left-0 right-0 bottom-0 z-[-3] pointer-events-none bg-gradient-to-b from-[#fffae6] via-[#ffdcb3] to-[#ffaa80] dark:from-[#0d3a58] dark:via-[#0a2d48] dark:to-[#071828]" />
 
-        {/* Fixed Canvas Texture overlay */}
-        <div className="fixed inset-0 z-[-2] pointer-events-none mix-blend-multiply opacity-40" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E"), repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px), repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px)`
-        }}>
-        </div>
-        <ScrollProgress />
-        <Header />
-        <main id="main-content" className="pt-20">
-          {children}
-        </main>
-        <Footer />
+        {/* Texture overlay:
+             Light mode — multiply blend darkens paper grain
+             Dark mode  — screen blend lightens grain = scratch/chalk marks on Prussian Blue */}
+        <div
+          className="fixed inset-0 z-[-2] pointer-events-none mix-blend-multiply dark:mix-blend-screen opacity-35 dark:opacity-[0.18]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"), repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px), repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px)`,
+          }}
+        />
+
+        <ThemeProvider>
+          <ScrollProgress />
+          <Header />
+          <main id="main-content" className="pt-20">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

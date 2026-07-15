@@ -44,10 +44,10 @@ export default function FeaturedPaintingsSwiper() {
               <span className="absolute top-4 left-4 bg-sage/90 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1 rounded-full z-10 shadow-sm">✦ Available</span>
               <Image src={s.img} alt={s.name} fill sizes="(max-width: 640px) 100vw, 400px" className="object-cover drop-shadow-xl group-hover:scale-110 transition-transform duration-700" />
             </div>
-            <div className="p-6 border-t border-white/20 dark:border-white/5 bg-white/40 dark:bg-darkcard/40 backdrop-blur-md relative">
+            <div className="p-6 border-t border-white/20 dark:border-white/5 bg-white/40 dark:bg-[#0a2d48]/40 backdrop-blur-md relative">
               <p className="font-accent text-[10px] tracking-widest uppercase text-sage mb-2">Original Watercolour</p>
-              <h3 className="font-display text-3xl mb-2 text-gray-900 dark:text-white group-hover:text-prussian-lt transition-colors">{s.name}</h3>
-              <p className="text-gray-500 dark:text-gray-400 text-sm font-light">{s.price} — A4 (21 × 30 cm)</p>
+              <h3 className="font-display text-3xl mb-2 text-prussian dark:text-[#f0ede8] group-hover:text-prussian-lt dark:group-hover:text-white transition-colors">{s.name}</h3>
+              <p className="text-prussian-lt/70 dark:text-white/60 text-sm font-light">{s.price} — A4 (21 × 30 cm)</p>
               <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full glass-panel flex items-center justify-center text-prussian dark:text-white group-hover:bg-prussian group-hover:text-white transition-all shadow-md">→</div>
             </div>
           </Link>
