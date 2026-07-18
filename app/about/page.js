@@ -8,33 +8,39 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <>
-      {/* ── HERO ── */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-4 sm:px-8 lg:px-16 pt-20" aria-label="Hero">
-        
-        {/* Background Video Banner */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-80 dark:opacity-40 mix-blend-multiply dark:mix-blend-screen transition-opacity duration-1000"
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-paint-moving-in-the-water-26771-large.mp4" type="video/mp4" />
-          </video>
-          {/* Gradient Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#fcfbf9] via-transparent to-[#fcfbf9]/50 dark:from-[#0a0f14] dark:via-transparent dark:to-[#0a0f14]/50"></div>
-        </div>
+    <main className="min-h-screen overflow-hidden">
+      {/* Background matches homepage aesthetic */}
+      <div className="fixed inset-0 z-[-5] bg-[#faf9f6] dark:bg-[#1a1918] transition-colors duration-1000"></div>
 
+      <div className="fixed inset-0 z-[-4] opacity-[0.4] dark:opacity-[0.15] mix-blend-multiply dark:mix-blend-screen pointer-events-none transition-opacity duration-1000">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className="w-full h-full">
+          <filter id="watercolor-noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="4" stitchTiles="stitch" />
+            <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.15 0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#watercolor-noise)" />
+        </svg>
+      </div>
+
+      {/* ── HERO ── */}
+      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-4 sm:px-8 lg:px-16 pt-20 pb-12" aria-label="Hero">
         <div className="relative z-10 w-full max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <div className="flex flex-col justify-center animate-[fade-in-up_1s_ease-out_forwards]">
+          
+          {/* IMAGE */}
+          <div className="w-full relative z-10 opacity-0 animate-[fade-in-up_1s_ease-out_forwards] flex justify-center">
+            <div className="relative w-full max-w-md lg:max-w-full group">
+              <Image src="/images/portfolio/Portfolio BG removal.png" alt="Asha in her element" width={800} height={1000} priority sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-auto object-contain drop-shadow-2xl group-hover:scale-[1.02] transition-transform duration-[3s]" />
+            </div>
+          </div>
+
+          {/* TEXT */}
+          <div className="w-full relative z-20 flex flex-col justify-center opacity-0 animate-[slide-out-right_1.2s_ease-out_0.5s_forwards]">
             <div className="flex items-center justify-start gap-3 mb-8">
-              <div className="w-12 h-[1px] bg-gold/60 hidden md:block" />
-              <p className="font-accent text-xs tracking-[0.4em] uppercase text-gold">The Story Behind The Art</p>
+              <div className="w-12 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
+              <p className="font-accent text-xs sm:text-sm font-normal tracking-[0.4em] uppercase text-prussian dark:text-gold drop-shadow-md">The Story Behind The Art</p>
             </div>
             <h1 className="font-title text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8 text-prussian dark:text-ivory tracking-tight drop-shadow-sm">
-              Art Did Not Find Me —<br/><span className="text-gold italic">It Saved Me</span>
+              Art Did Not Find Me <span className="text-[#b8860b] dark:text-gold italic">It Saved Me</span>
             </h1>
             <p className="font-display text-2xl md:text-3xl text-prussian/90 dark:text-[#f0ede8]/80 mb-6 italic">
               Hello, I am Asha — and art gave me back to myself.
@@ -44,29 +50,59 @@ export default function AboutPage() {
             </p>
           </div>
           
-          <div className="w-full flex justify-center opacity-0 animate-[fade-in-up_1s_ease-out_0.3s_forwards]">
-            <div className="relative h-[400px] md:h-[600px] w-full max-w-[400px] lg:max-w-full rounded-t-full rounded-bl-full overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_30px_60px_-15px_rgba(212,175,55,0.15)] border border-gold/20">
-              <Image src="/images/portfolio/IMG-20260705-WA0140.jpg" alt="Asha in her element" fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" />
-              <div className="absolute inset-0 bg-gold/10 mix-blend-overlay"></div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* ── THE STORY ── */}
-      <section className="py-20 md:py-32 relative" id="story" aria-label="Asha's story">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+      {/* ── THE STORY WITH FILM REEL ── */}
+      <section className="py-20 md:py-32 relative overflow-hidden" id="story" aria-label="Asha's story">
 
-          {/* Story Text */}
-          <div className="lg:col-span-7 flex flex-col pt-12">
-            <div className="flex items-center justify-start gap-3 mb-8">
-              <div className="w-8 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
-              <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">My Story</p>
+        {/* Film Reel Animation */}
+        <div className="w-full relative mb-20 overflow-hidden py-4 border-y border-prussian/10 dark:border-white/5 bg-white/20 dark:bg-[#0a0f14]/20 backdrop-blur-sm">
+          <div className="flex w-[200%] animate-[marquee_40s_linear_infinite]">
+            {/* Reel 1 */}
+            <div className="flex w-1/2 justify-around items-center px-4 gap-6">
+              {[
+                "/images/portfolio/IMG-20260705-WA0140.jpg",
+                "/images/portfolio/Cuva.jpg",
+                "/images/portfolio/IMG-20260705-WA0109.jpg",
+                "/images/portfolio/IMG-20260705-WA0116.jpg",
+                "/images/portfolio/IMG_20260621_111019.jpg",
+              ].map((src, i) => (
+                <div key={`reel1-${i}`} className="relative h-64 md:h-80 aspect-[4/5] overflow-hidden shadow-lg border-4 border-white dark:border-[#1a1918] flex-shrink-0">
+                  <Image src={src} alt="Process" fill sizes="25vw" className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+              ))}
             </div>
-            <h2 className="font-title text-3xl md:text-5xl mb-12 leading-tight text-prussian dark:text-[#f0ede8] tracking-wide">
-              A Brush. A Blank Sheet.<br/>And Everything Changed.
+            {/* Reel 2 (Clone for infinite loop) */}
+            <div className="flex w-1/2 justify-around items-center px-4 gap-6">
+              {[
+                "/images/portfolio/IMG-20260705-WA0140.jpg",
+                "/images/portfolio/Cuva.jpg",
+                "/images/portfolio/IMG-20260705-WA0109.jpg",
+                "/images/portfolio/IMG-20260705-WA0116.jpg",
+                "/images/portfolio/IMG_20260621_111019.jpg",
+              ].map((src, i) => (
+                <div key={`reel2-${i}`} className="relative h-64 md:h-80 aspect-[4/5] overflow-hidden shadow-lg border-4 border-white dark:border-[#1a1918] flex-shrink-0">
+                  <Image src={src} alt="Process" fill sizes="25vw" className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16 flex flex-col">
+          <div className="flex flex-col mb-12">
+            <div className="flex items-center justify-start gap-3 mb-6">
+              <div className="w-8 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
+              <p className="font-accent text-xs sm:text-sm font-normal tracking-[0.4em] uppercase text-prussian dark:text-gold drop-shadow-md">My Story</p>
+            </div>
+            <h2 className="font-title text-4xl md:text-5xl leading-tight text-prussian dark:text-[#f0ede8] tracking-wide">
+              A Brush. A Blank Sheet.<br className="md:hidden" /> And Everything Changed.
             </h2>
-            <div className="space-y-8 font-body font-light text-lg text-prussian-lt/90 dark:text-[#a8a5a0] leading-[1.8] pl-0 md:pl-8 md:border-l border-prussian/20 dark:border-white/10">
+          </div>
+
+          <div className="w-full border-y md:border border-prussian/10 dark:border-white/10 bg-white/20 dark:bg-[#1a1918]/20 p-6 md:p-12 lg:p-16">
+            <div className="columns-1 lg:columns-2 gap-16 space-y-8 font-body font-light text-lg text-prussian-lt/90 dark:text-[#a8a5a0] leading-[1.8] text-justify">
               <p>There are moments in life when the noise becomes too loud. When the world feels too heavy and you search — desperately sometimes — for something that makes sense again. For me, that something was a brush, a sheet of paper and a small, quiet pool of paints.</p>
               <p>Art has been my sanity. My softest place to land when life felt hard. My most honest conversation when words were not enough. In those moments when I felt most lost — the canvas always knew what to do with me.</p>
               <p>There is something impossible to explain to anyone who has not felt it — the way time simply disappears when you paint. You sit down and the whole world outside quietly stops mattering. Hours pass like minutes. That place — I never want to leave it.</p>
@@ -75,47 +111,27 @@ export default function AboutPage() {
               <p>The truth is — this dream is not new. I wanted to be an artist long before life asked me to be other things. It was a childhood whisper that never quite went away — through every season, every chapter, every detour, it waited patiently. And finally — I chose to listen.</p>
             </div>
           </div>
-
-          {/* Image Stack */}
-          <div className="lg:col-span-5 flex flex-col gap-8 relative mt-12 lg:mt-0">
-            <div className="w-full relative h-[300px] md:h-[450px] rounded-t-full overflow-hidden shadow-xl border border-prussian/10 dark:border-white/10">
-              <Image src="/images/portfolio/Cuva.jpg" alt="Asha at work" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-            </div>
-            <div className="grid grid-cols-2 gap-8">
-              <div className="w-full relative h-[200px] md:h-[250px] overflow-hidden shadow-lg border border-prussian/10 dark:border-white/10 rounded-br-[4rem]">
-                <Image src="/images/portfolio/IMG-20260705-WA0109.jpg" alt="Asha's painting process" fill sizes="25vw" className="object-cover" />
-              </div>
-              <div className="w-full relative h-[200px] md:h-[250px] overflow-hidden shadow-lg border border-prussian/10 dark:border-white/10 rounded-tl-[4rem]">
-                <Image src="/images/portfolio/IMG-20260705-WA0116.jpg" alt="Asha with her art" fill sizes="25vw" className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
-              </div>
-            </div>
-            <div className="w-full relative h-[250px] md:h-[350px] rounded-b-[6rem] overflow-hidden shadow-xl border border-prussian/10 dark:border-white/10">
-              <Image src="/images/portfolio/IMG_20260621_111019.jpg" alt="Asha in her studio" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* ── CONFESSIONS ── */}
-      <section className="py-20 md:py-32 relative bg-white/40 dark:bg-[#0a2d45]/40" id="confessions" aria-label="A few things about Asha">
+      {/* ── CONFESSIONS (3x3 Grid) ── */}
+      <section className="py-20 md:py-32 relative bg-transparent" id="confessions" aria-label="A few things about Asha">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
-            <div className="max-w-2xl">
-              <div className="flex items-center justify-start gap-3 mb-6">
-                <div className="w-8 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
-                <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">My Confessions</p>
-              </div>
-              <h2 className="font-title text-4xl md:text-5xl lg:text-6xl text-prussian dark:text-[#f0ede8] tracking-wide leading-tight">
-                A Few Things I Will<br/>Let You In On
-              </h2>
+          <div className="flex flex-col md:items-center text-center gap-4 mb-20">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
+              <p className="font-accent text-xs sm:text-sm font-normal tracking-[0.4em] uppercase text-prussian dark:text-gold drop-shadow-md">My Confessions</p>
+              <div className="w-8 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
             </div>
-            <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light text-lg max-w-sm pb-2">
+            <h2 className="font-title text-4xl md:text-5xl lg:text-6xl text-prussian dark:text-[#f0ede8] tracking-wide leading-tight">
+              A Few Things I Will Let You In On
+            </h2>
+            <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light text-lg max-w-xl mt-4">
               For anyone who wants to know the person behind the paintings — here are six truths.
             </p>
           </div>
 
-          <div className="flex flex-col border-t border-prussian/20 dark:border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
             {[
               { num: '01', text: 'I cannot start a painting without coffee. Not tea. Not water. Coffee — strong, warm and sitting exactly within arm\'s reach of my brush. This is non-negotiable.' },
               { num: '02', text: 'Nature walks are basically my art school. I have cancelled plans, missed trains and completely lost track of time because a particular leaf or old architecture caught my eye. No regrets.' },
@@ -124,60 +140,55 @@ export default function AboutPage() {
               { num: '05', text: 'My art supplies budget is best not discussed. What I will say is that a new sheet of beautiful paper brings me a very specific and genuine joy.' },
               { num: '06', text: 'Happy accidents are my favourite technique. The bleed I did not plan. The colour that mixed itself into something I could never have imagined. Some of my best work was painted by the water deciding for itself.' },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col md:flex-row gap-6 md:gap-16 items-start py-10 md:py-16 border-b border-prussian/10 dark:border-white/[0.06] group hover:bg-white/60 dark:hover:bg-white/[0.04] transition-colors duration-700 px-4 md:px-8 -mx-4 md:-mx-8">
-                <span className="font-display text-6xl md:text-8xl text-prussian/10 dark:text-white/10 group-hover:text-prussian/80 dark:group-hover:text-white/60 transition-colors duration-700 w-24 md:w-32 shrink-0 leading-none">{item.num}</span>
-                <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light leading-[1.8] font-body text-lg md:text-xl max-w-3xl pt-2">{item.text}</p>
+              <div key={i} className="relative flex flex-col items-center justify-center text-center p-8 border border-prussian/10 dark:border-white/10 group hover:bg-white/60 dark:hover:bg-white/[0.04] transition-colors duration-700 overflow-hidden">
+                <p className="text-prussian/90 dark:text-[#a8a5a0] font-light leading-[1.8] font-body text-lg relative z-10">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── WHAT YOU CAN DO NEXT ── */}
-      <section className="py-20 md:py-32 relative bg-white/40 dark:bg-[#0a2d45]/40" id="next-steps" aria-label="What you can do next">
+      {/* ── WHAT YOU CAN DO NEXT (Inline / Side-by-Side) ── */}
+      <section className="py-20 md:py-32 relative bg-transparent" id="next-steps" aria-label="What you can do next">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16">
-          <div className="text-center max-w-2xl mx-auto mb-24">
+          <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-8 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
-              <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">Now That You Know A Little About Me</p>
-              <div className="w-8 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
+              <div className="w-8 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
+              <p className="font-accent text-xs sm:text-sm font-normal tracking-[0.4em] uppercase text-prussian dark:text-gold drop-shadow-md">Now That You Know A Little About Me</p>
+              <div className="w-8 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
             </div>
             <h2 className="font-title text-4xl md:text-5xl mb-6 text-prussian dark:text-[#f0ede8] tracking-wide">Here Is What You Can Do Next</h2>
             <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light text-lg">Every door leads somewhere beautiful. Choose yours.</p>
           </div>
 
-          <div className="flex flex-col gap-24 lg:gap-32 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 
-            {/* CTA 1: Image Left, Text Right */}
-            <Link href="/shop" className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 group cursor-pointer block">
-              <div className="w-full md:w-1/2 relative h-[450px] overflow-hidden rounded-bl-[4rem] rounded-tr-[4rem] shadow-xl">
-                <Image src="/images/portfolio/IMG-20260705-WA0190(1).jpg" alt="Original paintings" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-[2s] group-hover:scale-105" />
+            {/* CTA 1 */}
+            <Link href="/shop" className="group flex flex-col bg-white/40 dark:bg-[#1f1e1d]/40 border border-prussian/10 dark:border-white/10 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="relative h-64 md:h-80 w-full overflow-hidden">
+                <Image src="/images/portfolio/IMG-20260705-WA0190(1).jpg" alt="Original paintings" fill className="object-cover transition-transform duration-[2s] group-hover:scale-105" />
               </div>
-              <div className="w-full md:w-1/2 flex flex-col justify-center">
-                <div className="w-12 h-[1px] bg-prussian/30 dark:bg-white/20 mb-8 transition-all duration-500 group-hover:w-24" />
-                <div className="font-accent text-[10px] tracking-widest uppercase text-prussian-lt/70 dark:text-[#a8a5a0] mb-4">For Walls That Deserve More</div>
-                <h3 className="font-title text-4xl lg:text-5xl mb-6 text-prussian dark:text-[#f0ede8] tracking-wide">Enter The Artistry</h3>
-                <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light text-lg mb-8 leading-relaxed max-w-sm">Original art painted from nature and everywhere I wander. Find the piece that speaks to your space.</p>
-                <div className="inline-flex items-center gap-4 text-prussian dark:text-[#f0ede8] font-medium uppercase tracking-widest text-xs group-hover:text-prussian-lt dark:group-hover:text-white transition-colors">
+              <div className="p-8 md:p-12 flex flex-col items-center text-center">
+                <div className="font-accent text-[10px] tracking-widest uppercase text-[#b8860b] dark:text-gold mb-4">For Walls That Deserve More</div>
+                <h3 className="font-title text-3xl mb-4 text-prussian dark:text-[#f0ede8] tracking-wide">Enter The Artistry</h3>
+                <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light text-base mb-8 leading-relaxed max-w-xs mx-auto">Original art painted from nature and everywhere I wander. Find the piece that speaks to your space.</p>
+                <div className="inline-flex items-center gap-4 text-prussian dark:text-[#f0ede8] font-medium uppercase tracking-widest text-xs group-hover:text-[#b8860b] dark:group-hover:text-gold transition-colors">
                   Explore Paintings
-                  <span className="w-8 h-[1px] bg-prussian dark:bg-[#f0ede8] group-hover:w-12 transition-all duration-300" />
                 </div>
               </div>
             </Link>
 
-            {/* CTA 2: Text Left, Image Right */}
-            <Link href="/connect" className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-20 group cursor-pointer block">
-              <div className="w-full md:w-1/2 relative h-[450px] overflow-hidden rounded-br-[4rem] rounded-tl-[4rem] shadow-xl">
-                <Image src="/images/portfolio/IMG-20260705-WA0203(1).jpg" alt="Say hello to Asha" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-[2s] group-hover:scale-105" />
+            {/* CTA 2 */}
+            <Link href="/connect" className="group flex flex-col bg-white/40 dark:bg-[#1f1e1d]/40 border border-prussian/10 dark:border-white/10 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="relative h-64 md:h-80 w-full overflow-hidden">
+                <Image src="/images/portfolio/IMG-20260705-WA0203(1).jpg" alt="Say hello to Asha" fill className="object-cover transition-transform duration-[2s] group-hover:scale-105" />
               </div>
-              <div className="w-full md:w-1/2 flex flex-col justify-center md:items-end md:text-right">
-                <div className="w-12 h-[1px] bg-prussian/30 dark:bg-white/20 mb-8 transition-all duration-500 group-hover:w-24 md:ml-auto md:mr-0" />
-                <div className="font-accent text-[10px] tracking-widest uppercase text-prussian-lt/70 dark:text-[#a8a5a0] mb-4">No Agenda. Just Art.</div>
-                <h3 className="font-title text-4xl lg:text-5xl mb-6 text-prussian dark:text-[#f0ede8] tracking-wide">Send A Message</h3>
-                <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light text-lg mb-8 leading-relaxed max-w-sm">No formalities. Just two people who love art having a conversation. I would love to hear from you.</p>
-                <div className="inline-flex items-center gap-4 text-prussian dark:text-[#f0ede8] font-medium uppercase tracking-widest text-xs group-hover:text-prussian-lt dark:group-hover:text-white transition-colors md:flex-row-reverse">
+              <div className="p-8 md:p-12 flex flex-col items-center text-center">
+                <div className="font-accent text-[10px] tracking-widest uppercase text-[#b8860b] dark:text-gold mb-4">No Agenda. Just Art.</div>
+                <h3 className="font-title text-3xl mb-4 text-prussian dark:text-[#f0ede8] tracking-wide">Send A Message</h3>
+                <p className="text-prussian-lt/90 dark:text-[#a8a5a0] font-light text-base mb-8 leading-relaxed max-w-xs mx-auto">No formalities. Just two people who love art having a conversation. I would love to hear from you.</p>
+                <div className="inline-flex items-center gap-4 text-prussian dark:text-[#f0ede8] font-medium uppercase tracking-widest text-xs group-hover:text-[#b8860b] dark:group-hover:text-gold transition-colors">
                   Say Hello
-                  <span className="w-8 h-[1px] bg-prussian dark:bg-[#f0ede8] group-hover:w-12 transition-all duration-300" />
                 </div>
               </div>
             </Link>
@@ -186,6 +197,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-    </>
+    </main>
   );
 }
