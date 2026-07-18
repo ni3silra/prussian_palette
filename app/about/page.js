@@ -25,7 +25,7 @@ export default function AboutPage() {
       {/* ── HERO ── */}
       <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-4 sm:px-8 lg:px-16 pt-20 pb-12" aria-label="Hero">
         <div className="relative z-10 w-full max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          
+
           {/* IMAGE */}
           <div className="w-full relative z-10 opacity-0 animate-[fade-in-up_1s_ease-out_forwards] flex justify-center">
             <div className="relative w-full max-w-md lg:max-w-full group">
@@ -49,7 +49,7 @@ export default function AboutPage() {
               A self-taught artist. A lifelong dream. And a brush that changed everything.
             </p>
           </div>
-          
+
         </div>
       </section>
 
@@ -165,9 +165,7 @@ export default function AboutPage() {
 
             {/* CTA 1 */}
             <Link href="/shop" className="group flex flex-col bg-white/40 dark:bg-[#1f1e1d]/40 border border-prussian/10 dark:border-white/10 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-              <div className="relative h-64 md:h-80 w-full overflow-hidden">
-                <Image src="/images/portfolio/IMG-20260705-WA0190(1).jpg" alt="Original paintings" fill className="object-cover transition-transform duration-[2s] group-hover:scale-105" />
-              </div>
+
               <div className="p-8 md:p-12 flex flex-col items-center text-center">
                 <div className="font-accent text-[10px] tracking-widest uppercase text-[#b8860b] dark:text-gold mb-4">For Walls That Deserve More</div>
                 <h3 className="font-title text-3xl mb-4 text-prussian dark:text-[#f0ede8] tracking-wide">Enter The Artistry</h3>
@@ -180,9 +178,7 @@ export default function AboutPage() {
 
             {/* CTA 2 */}
             <Link href="/connect" className="group flex flex-col bg-white/40 dark:bg-[#1f1e1d]/40 border border-prussian/10 dark:border-white/10 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-              <div className="relative h-64 md:h-80 w-full overflow-hidden">
-                <Image src="/images/portfolio/IMG-20260705-WA0203(1).jpg" alt="Say hello to Asha" fill className="object-cover transition-transform duration-[2s] group-hover:scale-105" />
-              </div>
+
               <div className="p-8 md:p-12 flex flex-col items-center text-center">
                 <div className="font-accent text-[10px] tracking-widest uppercase text-[#b8860b] dark:text-gold mb-4">No Agenda. Just Art.</div>
                 <h3 className="font-title text-3xl mb-4 text-prussian dark:text-[#f0ede8] tracking-wide">Send A Message</h3>

@@ -18,9 +18,9 @@ export default function ConnectPage() {
       {/* Top Title */}
       <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-24">
         <div className="flex items-center justify-center gap-4 mb-10">
-          <div className="w-12 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
-          <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">Connect</p>
-          <div className="w-12 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
+          <div className="w-12 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
+          <p className="font-accent text-xs sm:text-sm font-normal tracking-[0.4em] uppercase text-prussian dark:text-gold drop-shadow-md">Connect</p>
+          <div className="w-12 h-[1px] bg-prussian dark:bg-gold/60 hidden md:block" />
         </div>
         <h1 className="font-light text-3xl md:text-4xl lg:text-5xl text-prussian dark:text-[#f0ede8] leading-snug max-w-3xl mx-auto font-title italic tracking-wide">
           Whether you have a question about an available piece, or just want to say hello — my inbox is always open.
