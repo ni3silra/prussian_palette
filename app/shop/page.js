@@ -10,17 +10,32 @@ export default function ShopPage() {
     <>
       <section className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16 pt-24 lg:pt-32 pb-32 relative z-10" aria-label="Shop">
 
+        {/* Background Video Banner */}
+        <div className="absolute inset-0 z-0 h-[70vh]">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-80 dark:opacity-40 mix-blend-multiply dark:mix-blend-screen transition-opacity duration-1000"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-paint-moving-in-water-26770-large.mp4" type="video/mp4" />
+          </video>
+          {/* Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#fcfbf9] via-transparent to-[#fcfbf9]/50 dark:from-[#0a0f14] dark:via-transparent dark:to-[#0a0f14]/50"></div>
+        </div>
+
         {/* Top Title */}
-        <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-24">
+        <div className="relative z-10 text-center max-w-4xl mx-auto mb-20 lg:mb-24 h-[60vh] flex flex-col justify-center animate-[fade-in-up_1s_ease-out_forwards]">
           <div className="flex items-center justify-center gap-4 mb-10">
-            <div className="w-12 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
-            <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">The Collection</p>
-            <div className="w-12 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
+            <div className="w-16 h-[1px] bg-gold/60 hidden md:block" />
+            <p className="font-accent text-xs tracking-[0.4em] uppercase text-gold">The Collection</p>
+            <div className="w-16 h-[1px] bg-gold/60 hidden md:block" />
           </div>
-          <h1 className="font-light text-3xl md:text-4xl lg:text-5xl text-prussian dark:text-[#f0ede8] leading-snug max-w-3xl mx-auto font-title italic tracking-wide">
+          <h1 className="font-light text-4xl md:text-5xl lg:text-6xl text-prussian dark:text-ivory leading-snug max-w-3xl mx-auto font-title italic tracking-wide drop-shadow-sm">
             One Painting. One Story. Forever Yours.
           </h1>
-          <p className="font-light text-lg mt-8 text-prussian-lt/90 dark:text-[#a8a5a0] leading-relaxed max-w-2xl mx-auto font-display">
+          <p className="font-light text-lg mt-8 text-prussian-lt/90 dark:text-sage-lt leading-relaxed max-w-2xl mx-auto font-display">
             Each piece carries a moment the world offered and I could not let go.
             Explore original watercolours and fine art digital prints.
           </p>

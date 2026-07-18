@@ -11,24 +11,44 @@ export default function AboutPage() {
     <>
       {/* ── HERO ── */}
       <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-4 sm:px-8 lg:px-16 pt-20" aria-label="Hero">
+        
+        {/* Background Video Banner */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-80 dark:opacity-40 mix-blend-multiply dark:mix-blend-screen transition-opacity duration-1000"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-paint-moving-in-the-water-26771-large.mp4" type="video/mp4" />
+          </video>
+          {/* Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#fcfbf9] via-transparent to-[#fcfbf9]/50 dark:from-[#0a0f14] dark:via-transparent dark:to-[#0a0f14]/50"></div>
+        </div>
+
         <div className="relative z-10 w-full max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center animate-[fade-in-up_1s_ease-out_forwards]">
             <div className="flex items-center justify-start gap-3 mb-8">
-              <div className="w-8 h-[1px] bg-prussian/30 dark:bg-white/20 hidden md:block" />
-              <p className="font-accent text-xs tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">The Story Behind The Art</p>
+              <div className="w-12 h-[1px] bg-gold/60 hidden md:block" />
+              <p className="font-accent text-xs tracking-[0.4em] uppercase text-gold">The Story Behind The Art</p>
             </div>
-            <h1 className="font-title text-3xl md:text-5xl lg:text-6xl leading-[1.15] mb-8 text-prussian dark:text-[#f0ede8] tracking-tight">
-              Art Did Not Find Me —<br/>It Saved Me
+            <h1 className="font-title text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8 text-prussian dark:text-ivory tracking-tight drop-shadow-sm">
+              Art Did Not Find Me —<br/><span className="text-gold italic">It Saved Me</span>
             </h1>
             <p className="font-display text-2xl md:text-3xl text-prussian/90 dark:text-[#f0ede8]/80 mb-6 italic">
               Hello, I am Asha — and art gave me back to myself.
             </p>
-            <p className="font-body text-lg text-prussian-lt/90 dark:text-[#a8a5a0] font-light max-w-md leading-relaxed">
+            <p className="font-body text-lg text-prussian-lt/90 dark:text-sage-lt font-light max-w-md leading-relaxed">
               A self-taught artist. A lifelong dream. And a brush that changed everything.
             </p>
           </div>
-          <div className="relative h-[400px] md:h-[600px] w-full rounded-full overflow-hidden shadow-2xl">
-            <Image src="/images/portfolio/IMG-20260705-WA0140.jpg" alt="Asha in her element" fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" />
+          
+          <div className="w-full flex justify-center opacity-0 animate-[fade-in-up_1s_ease-out_0.3s_forwards]">
+            <div className="relative h-[400px] md:h-[600px] w-full max-w-[400px] lg:max-w-full rounded-t-full rounded-bl-full overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_30px_60px_-15px_rgba(212,175,55,0.15)] border border-gold/20">
+              <Image src="/images/portfolio/IMG-20260705-WA0140.jpg" alt="Asha in her element" fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" />
+              <div className="absolute inset-0 bg-gold/10 mix-blend-overlay"></div>
+            </div>
           </div>
         </div>
       </section>

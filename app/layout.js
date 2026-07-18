@@ -1,30 +1,23 @@
-import { Great_Vibes, Cormorant_Garamond, DM_Sans, Overpass_Mono } from "next/font/google";
+import { Playfair_Display, Montserrat, Overpass_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const greatVibes = Great_Vibes({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-great-vibes",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  weight: ["300", "400", "500", "600"],
+const playfair = Playfair_Display({
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-cormorant-garamond",
+  variable: "--font-playfair",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const montserrat = Montserrat({
   weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -50,7 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${greatVibes.variable} ${cormorant.variable} ${dmSans.variable} ${overpassMono.variable}`}
+      className={`scroll-smooth ${playfair.variable} ${montserrat.variable} ${overpassMono.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
@@ -66,16 +59,26 @@ export default function RootLayout({ children }) {
         className="antialiased relative font-body text-gray-800 dark:text-[#f0ede8] transition-colors duration-300 overflow-x-hidden"
         suppressHydrationWarning
       >
-        {/* Background gradient — light: warm canvas, dark: deep Prussian Blue */}
-        <div className="absolute top-0 left-0 right-0 bottom-0 z-[-3] pointer-events-none bg-gradient-to-b from-[#fffae6] via-[#ffdcb3] to-[#ffaa80] dark:from-[#0d3a58] dark:via-[#0a2d48] dark:to-[#071828]" />
+        {/* Dynamic Premium Motion Background */}
+        <div className="fixed inset-0 z-[-5] bg-gradient-to-b from-[#eef2f6] via-[#e2eaf2] to-[#d6e1ec] dark:bg-none dark:bg-[#0a0f14] transition-all duration-700"></div>
 
-        {/* Texture overlay:
-             Light mode — multiply blend darkens paper grain
-             Dark mode  — screen blend lightens grain = scratch/chalk marks on Prussian Blue */}
+        {/* Winter Magic Snowfall (Light Mode Only) */}
+        <div className="fixed inset-0 z-[-4] pointer-events-none dark:hidden">
+          <div className="absolute inset-0 bg-snow-1 opacity-80"></div>
+          <div className="absolute inset-0 bg-snow-2 opacity-100"></div>
+          <div className="absolute inset-0 bg-snow-3 opacity-100"></div>
+        </div>
+
+        <div className="fixed inset-0 z-[-3] opacity-40 dark:opacity-20 pointer-events-none transition-opacity duration-700">
+          <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-br from-[#a2b5cd]/40 dark:from-[#d4af37]/30 to-transparent rounded-full blur-[100px] animate-slow-spin"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-tl from-[#e0e8f0]/60 dark:from-[#2b3a4a]/40 to-transparent rounded-full blur-[120px] animate-reverse-slow-spin"></div>
+        </div>
+
+        {/* Premium Paper/Canvas Texture */}
         <div
-          className="fixed inset-0 z-[-2] pointer-events-none mix-blend-multiply dark:mix-blend-screen opacity-35 dark:opacity-[0.18]"
+          className="fixed inset-0 z-[-2] pointer-events-none mix-blend-multiply dark:mix-blend-overlay opacity-20 dark:opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"), repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px), repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px)`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")`,
           }}
         />
 

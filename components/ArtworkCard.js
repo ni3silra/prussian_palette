@@ -19,6 +19,8 @@ export default function ArtworkCard({
   images,
   themeColor = '#eaf0ea',
   darkThemeColor = '#1f1e1d',
+  frameColorLight = '#181818',
+  frameColorDark = '#0f0f0f',
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -40,35 +42,43 @@ export default function ArtworkCard({
   }, [isModalOpen]);
 
   const modalBg = theme === 'dark' ? darkThemeColor : themeColor;
+  const currentFrameColor = theme === 'dark' ? frameColorDark : frameColorLight;
 
   // Main Card
   return (
     <>
-      <div className="group w-full relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-white/50 dark:border-white/10 glass-panel">
-        {/* Base Image */}
-        <Image
-          src={images[0]}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-1000 group-hover:scale-105"
-        />
+      {/* Outer Premium Frame */}
+      <div 
+        className="group w-full aspect-[4/5] bg-[#faf9f6] dark:bg-[#ebe9e4] p-2 sm:p-3 md:p-4 border-[8px] md:border-[12px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2 relative outline outline-1 outline-black/30 dark:outline-[#b8860b]/60"
+        style={{ borderColor: currentFrameColor }}
+      >
+        {/* Inner Matte & Image Container */}
+        <div className="relative w-full h-full overflow-hidden outline outline-1 outline-[#d4d1c9] dark:outline-[#d1cdc2]">
+          {/* Base Image */}
+          <Image
+            src={images[0]}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
 
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-prussian/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center z-10">
-          <h3 className="font-display text-3xl text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{title}</h3>
-          <p className="font-light text-sm text-white/80 mb-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{size} · {price}</p>
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-prussian/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-6 text-center z-10">
+            <h3 className="font-display text-3xl text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{title}</h3>
+            <p className="font-light text-sm text-white/80 mb-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{size} · {price}</p>
 
-          <div className="flex flex-col gap-4 w-full max-w-[200px] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="w-full px-8 py-3 text-[10px] font-medium uppercase tracking-[0.2em] bg-transparent border border-white/40 text-white rounded-full hover:bg-white/20 hover:border-white transition-all shadow-lg hover:shadow-2xl"
-            >
-              View Artwork
-            </button>
-            <button className="w-full px-8 py-3 text-[10px] font-medium uppercase tracking-[0.2em] bg-transparent border border-white/40 text-white rounded-full hover:bg-white/20 hover:border-white transition-all shadow-lg hover:shadow-2xl">
-              Own
-            </button>
+            <div className="flex flex-col gap-4 w-full max-w-[200px] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="w-full px-8 py-3 text-[10px] font-medium uppercase tracking-[0.2em] bg-transparent border border-white/40 text-white rounded-none hover:bg-white/20 hover:border-white transition-all shadow-lg hover:shadow-2xl"
+              >
+                View Artwork
+              </button>
+              <button className="w-full px-8 py-3 text-[10px] font-medium uppercase tracking-[0.2em] bg-transparent border border-white/40 text-white rounded-none hover:bg-white/20 hover:border-white transition-all shadow-lg hover:shadow-2xl">
+                Own
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -96,7 +106,7 @@ export default function ArtworkCard({
               aria-label="Close modal"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover/close:scale-110 transition-transform">
-                <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
