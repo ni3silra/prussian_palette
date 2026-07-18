@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -92,7 +93,7 @@ export default function ArtworkCard({
       </div>
 
       {/* Modal Overlay */}
-      {isMounted && (
+      {isMounted && createPortal(
         <div
           className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 transition-all duration-700 ${isModalOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
         >
@@ -104,8 +105,7 @@ export default function ArtworkCard({
 
           {/* Modal Content */}
           <div
-            className={`relative w-full max-w-6xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row transition-all duration-700 transform ${isModalOpen ? 'scale-100 translate-y-0 opacity-100' : 'scale-95 translate-y-8 opacity-0'}`}
-            style={{ backgroundColor: modalBg }}
+            className={`relative w-full max-w-6xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row transition-all duration-700 transform ${isModalOpen ? 'scale-100 translate-y-0 opacity-100' : 'scale-95 translate-y-8 opacity-0'} bg-[#faf9f6] dark:bg-[#1a1918]`}
           >
             {/* Close Button */}
             <button
@@ -240,7 +240,8 @@ export default function ArtworkCard({
             </div>
 
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
