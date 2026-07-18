@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Zoom } from 'swiper/modules';
 import { useTheme } from './ThemeProvider';
+import { paintings } from '@/lib/paintings';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -24,6 +26,7 @@ export default function ArtworkCard({
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [matRequired, setMatRequired] = useState(false);
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -43,6 +46,11 @@ export default function ArtworkCard({
 
   const modalBg = theme === 'dark' ? darkThemeColor : themeColor;
   const currentFrameColor = theme === 'dark' ? frameColorDark : frameColorLight;
+
+  const paintingData = paintings.find((p) => p.name === title);
+  const fullStory = paintingData ? paintingData.story : description;
+  const tagline = paintingData ? paintingData.tagline : '';
+  const specs = paintingData ? paintingData.specs : null;
 
   // Main Card
   return (
@@ -110,16 +118,15 @@ export default function ArtworkCard({
               </svg>
             </button>
 
-            {/* Left Side: Gallery (60%) */}
-            <div className="w-full md:w-[60%] h-[40vh] md:h-[90vh] bg-transparent relative">
+            {/* Left Side: Gallery (50%) */}
+            <div className="w-full md:w-[50%] h-[40vh] md:h-[90vh] bg-transparent relative flex items-center justify-center">
               <Swiper
-                modules={[Navigation, Pagination, Autoplay, Zoom]}
+                modules={[Navigation, Pagination, Autoplay]}
                 navigation={images.length > 1}
                 pagination={images.length > 1 ? { clickable: true } : false}
                 loop={images.length > 1}
-                zoom={{ maxRatio: 3 }}
                 autoplay={images.length > 1 ? {
-                  delay: 1500,
+                  delay: 3000,
                   disableOnInteraction: true,
                   pauseOnMouseEnter: true,
                 } : false}
@@ -131,42 +138,102 @@ export default function ArtworkCard({
                 className="w-full h-full"
               >
                 {images.map((src, index) => (
-                  <SwiperSlide key={index} className="w-full h-full relative flex items-center justify-center cursor-zoom-in">
-                    <div className="swiper-zoom-container relative w-full h-full p-4 md:p-12">
-                      <Image
-                        src={src}
-                        alt={`${title} - View ${index + 1}`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 60vw"
-                        className="object-contain drop-shadow-2xl"
-                        priority={index === 0}
-                      />
+                  <SwiperSlide key={index} className="w-full h-full relative flex items-center justify-center p-6 md:p-16">
+                    {/* The Premium Frame inside Modal */}
+                    <div 
+                      className="relative w-full max-w-[400px] aspect-[4/5] bg-[#faf9f6] dark:bg-[#ebe9e4] p-3 md:p-4 border-[10px] md:border-[16px] shadow-[0_30px_60px_rgba(0,0,0,0.5)] outline outline-1 outline-black/30 dark:outline-[#b8860b]/60 m-auto"
+                      style={{ borderColor: currentFrameColor }}
+                    >
+                      <div className="relative w-full h-full overflow-hidden outline outline-1 outline-[#d4d1c9] dark:outline-[#d1cdc2]">
+                        <Image
+                          src={src}
+                          alt={`${title} - View ${index + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                          priority={index === 0}
+                        />
+                      </div>
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
 
-            {/* Right Side: Details (40%) */}
-            <div className="w-full md:w-[40%] flex flex-col justify-center p-6 md:p-10 h-[50vh] md:h-[90vh] overflow-y-auto custom-scrollbar">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-[1px] bg-prussian/30 dark:bg-white/20" />
-                <p className="font-accent text-[10px] tracking-[0.4em] uppercase text-prussian-lt dark:text-[#a8a5a0]">Original Collection</p>
+            {/* Right Side: Details (50%) */}
+            <div className="w-full md:w-[50%] flex flex-col justify-start p-6 md:p-12 h-[60vh] md:h-[90vh] overflow-y-auto custom-scrollbar border-t md:border-t-0 md:border-l border-prussian/10 dark:border-white/10">
+              
+              <div className="flex items-center gap-3 mb-6 mt-4 md:mt-0">
+                <div className="w-8 h-[1px] bg-prussian/30 dark:bg-gold/60" />
+                <p className="font-accent text-[10px] tracking-[0.4em] uppercase text-prussian dark:text-gold">{paintingData ? paintingData.collection : 'Original Collection'}</p>
               </div>
 
-              <h2 className="font-display text-3xl md:text-4xl text-prussian dark:text-[#f0ede8] mb-2 leading-tight">{title}</h2>
+              <h2 className="font-display font-light text-4xl md:text-5xl text-[#08121f] dark:text-ivory mb-4 leading-tight drop-shadow-sm">{title}</h2>
+              
+              <div className="flex flex-col mb-8 border-b border-prussian/10 dark:border-white/10 pb-6">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                  <p className="font-display text-4xl leading-none text-[#b8860b] dark:text-gold m-0">{price}</p>
+                  <div className="hidden sm:block h-8 w-[1px] bg-prussian/20 dark:bg-white/20"></div>
+                  <p className="font-display text-2xl sm:text-3xl font-light text-prussian/90 dark:text-white/90 m-0">{size}</p>
+                  <div className="flex-1 min-w-[20px]"></div>
+                  <button className="h-[40px] px-8 text-[10px] flex items-center justify-center font-medium uppercase tracking-[0.3em] bg-[#102a45] dark:bg-gold text-white dark:text-[#102a45] hover:bg-[#1a365d] dark:hover:bg-[#b8860b] transition-all shadow-xl hover:shadow-2xl flex-shrink-0 w-full sm:w-auto">
+                    Own This Piece
+                  </button>
+                </div>
 
-              <p className="font-light text-sm text-prussian-lt dark:text-[#a8a5a0] mb-6">{size} · {price}</p>
-
-              <div className="prose prose-sm prose-prussian mb-8 font-body font-light text-prussian/80 dark:text-white/70 leading-relaxed whitespace-pre-line">
-                {description}
+                {/* Mat Selection Toggle */}
+                {(!paintingData || paintingData.collection === 'Original Watercolour') && (
+                  <div className="flex items-center justify-between p-4 bg-[#f4f2eb] dark:bg-[#1a1918] border border-prussian/10 dark:border-white/10 mt-6">
+                    <div>
+                      <p className="font-body text-sm text-prussian dark:text-white/90 mb-1">Add custom-cut white mat (+€15)</p>
+                      <p className="font-light text-xs text-prussian/60 dark:text-white/50">Ready to drop into any standard frame.</p>
+                    </div>
+                    <button 
+                      onClick={() => setMatRequired(!matRequired)}
+                      className={`relative w-12 h-6 transition-colors duration-300 ease-in-out border border-prussian/20 dark:border-white/20 ${matRequired ? 'bg-[#102a45] dark:bg-gold border-transparent' : 'bg-transparent'}`}
+                      aria-pressed={matRequired}
+                    >
+                      <span className={`absolute top-[3px] w-[16px] h-[16px] transition-transform duration-300 ease-in-out ${matRequired ? 'left-[28px] bg-white dark:bg-[#102a45]' : 'left-[3px] bg-prussian/40 dark:bg-white/40'}`} />
+                    </button>
+                  </div>
+                )}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="w-full sm:w-auto px-8 py-3 text-[10px] font-medium uppercase tracking-widest bg-prussian dark:bg-[#e8e2d9] text-white dark:text-prussian rounded-full hover:bg-prussian-lt dark:hover:bg-white transition-all shadow-xl hover:shadow-2xl dark:ring-1 dark:ring-white/30 flex-shrink-0 text-center">
-                  Own This Piece
-                </button>
-                <button className="w-full sm:w-auto px-8 py-3 text-[10px] font-medium uppercase tracking-widest bg-transparent border border-prussian/30 dark:border-white/50 text-prussian dark:text-[#f0ede8] rounded-full hover:bg-prussian dark:hover:bg-[#e8e2d9] hover:text-white dark:hover:text-prussian hover:border-prussian dark:hover:border-[#e8e2d9] transition-all shadow-sm hover:shadow-lg flex-shrink-0 text-center">
+              {tagline && (
+                <p className="font-body text-lg md:text-xl font-light text-prussian dark:text-sage-lt mb-8 leading-relaxed italic border-l-2 border-prussian/20 dark:border-gold/30 pl-4">
+                  "{tagline}"
+                </p>
+              )}
+
+              <div className="prose prose-sm md:prose-base prose-prussian mb-10 font-body font-light text-prussian/90 dark:text-white/80 leading-relaxed whitespace-pre-line">
+                {fullStory}
+              </div>
+
+              {specs && (
+                <div className="mb-10 w-full">
+                  <div className="w-full h-[1px] bg-prussian/10 dark:bg-white/10 mb-6" />
+                  <h4 className="font-accent text-[10px] tracking-[0.3em] uppercase text-prussian/60 dark:text-white/50 mb-4">Artwork Details</h4>
+                  <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                    {Object.entries(specs).map(([key, value]) => (
+                      <div key={key} className="flex flex-col">
+                        <dt className="font-accent text-[9px] uppercase tracking-widest text-prussian/50 dark:text-gold/60 mb-1">{key}</dt>
+                        <dd className="font-body text-xs text-prussian dark:text-white/70 font-light leading-snug">
+                          {value}
+                          {typeof value === 'string' && value.toLowerCase().includes('unframed') && (
+                            <Link href="/framing-guide" onClick={() => setIsModalOpen(false)} className="block mt-1.5 font-medium underline underline-offset-2 text-[#b8860b] dark:text-gold hover:text-prussian dark:hover:text-white transition-colors">
+                              Read Framing Guide
+                            </Link>
+                          )}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <div className="w-full h-[1px] bg-prussian/10 dark:bg-white/10 mt-6" />
+                </div>
+              )}
+
+              <div className="flex flex-col gap-4 mt-auto pb-8 md:pb-0 pt-4">
+                <button className="w-full px-10 py-4 text-[10px] font-medium uppercase tracking-[0.3em] bg-transparent border border-prussian/30 dark:border-gold text-prussian dark:text-gold rounded-none hover:bg-white/40 dark:hover:bg-gold/10 transition-all flex-shrink-0 text-center">
                   Request Custom Variation
                 </button>
               </div>

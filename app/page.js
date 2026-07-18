@@ -11,22 +11,22 @@ const collectionsData = [
     description: 'Quiet pieces capturing the essence of the earth, from misty fields to ancient roots.',
     artworks: [
       {
-        title: 'A Brief Moment', price: '€78', size: 'A4 Original Watercolour', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
+        title: 'A Brief Moment', price: '€78', size: 'A4', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
         description: 'Inspired by the quiet stillness of early morning walks through misty fields.\n\nThis piece captures the fleeting moment when the sun first breaks through the fog, revealing the subtle colors of nature waking up.',
         images: ['/images/art/A Brief Moment/1.png', '/images/art/A Brief Moment/2.png', '/images/art/A Brief Moment/3.png', '/images/art/A Brief Moment/4.png', '/images/art/A Brief Moment/5.png']
       },
       {
-        title: 'Somewhere in Blue', price: '€78', size: 'A4 Original Watercolour', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
+        title: 'Somewhere in Blue', price: '€78', size: 'A4', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
         description: 'A meditative study of coastal blues and atmospheric depth.\n\nThis painting explores the quiet moments before dusk when the sky and sea blend into a single, breathtaking gradient.',
         images: ['/images/art/Somewhere in Blue/1.png', '/images/art/Somewhere in Blue/2.png', '/images/art/Somewhere in Blue/3.png', '/images/art/Somewhere in Blue/4.png']
       },
       {
-        title: 'Still Standing', price: '€78', size: 'A4 Original Watercolour', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
+        title: 'Still Standing', price: '€78', size: 'A4', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
         description: 'A tribute to resilience and the quiet strength found in nature.\n\nCapturing the enduring presence of ancient trees against the elements, this artwork is a reminder of steadfastness.',
         images: ['/images/art/Still Standing/1.png', '/images/art/Still Standing/2.png', '/images/art/Still Standing/3.png', '/images/art/Still Standing/4.png']
       },
       {
-        title: 'Ancient Roots', price: '€85', size: 'A4 Original Watercolour', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
+        title: 'Ancient Roots', price: '€85', size: 'A4', themeColor: '#e0e8f0', darkThemeColor: '#0b3848',
         description: 'A tribute to resilience and the quiet strength found in nature.\n\nCapturing the enduring presence of ancient trees against the elements, this artwork is a reminder of steadfastness.',
         images: ['/images/art/Still Standing/1.png', '/images/art/Still Standing/2.png', '/images/art/Still Standing/3.png', '/images/art/Still Standing/4.png']
       }
@@ -41,22 +41,22 @@ const collectionsData = [
     description: 'Immersive artworks reflecting the rhythmic energy, depth, and endless movement of the sea.',
     artworks: [
       {
-        title: 'Tidal Shift', price: '€78', size: 'A4 Original Watercolour', themeColor: '#c8d2de', darkThemeColor: '#071828',
+        title: 'Tidal Shift', price: '€78', size: 'A4', themeColor: '#c8d2de', darkThemeColor: '#071828',
         description: 'An exploration of the ocean\'s rhythmic energy and changing tides.\n\nThe fluid movement of the water is captured with dynamic brushstrokes.',
         images: ['/images/art/A Brief Moment/1.png', '/images/art/A Brief Moment/2.png', '/images/art/A Brief Moment/3.png', '/images/art/A Brief Moment/4.png', '/images/art/A Brief Moment/5.png']
       },
       {
-        title: 'Deep Blue', price: '€78', size: 'A4 Original Watercolour', themeColor: '#c8d2de', darkThemeColor: '#071828',
+        title: 'Deep Blue', price: '€78', size: 'A4', themeColor: '#c8d2de', darkThemeColor: '#071828',
         description: 'Plunging into the profound depths of the ocean.\n\nThis painting uses rich, layered indigo and prussian blue tones to convey the mystery and vastness of deep waters.',
         images: ['/images/art/Somewhere in Blue/1.png', '/images/art/Somewhere in Blue/2.png', '/images/art/Somewhere in Blue/3.png', '/images/art/Somewhere in Blue/4.png']
       },
       {
-        title: 'Morning Mist', price: '€78', size: 'A4 Original Watercolour', themeColor: '#c8d2de', darkThemeColor: '#071828',
+        title: 'Morning Mist', price: '€78', size: 'A4', themeColor: '#c8d2de', darkThemeColor: '#071828',
         description: 'The delicate interplay of fog rolling over the morning sea.\n\nSoft washes of pale blues and greys create an ethereal atmosphere.',
         images: ['/images/art/Still Standing/1.png', '/images/art/Still Standing/2.png', '/images/art/Still Standing/3.png', '/images/art/Still Standing/4.png']
       },
       {
-        title: 'Coastal Dawn', price: '€85', size: 'A4 Original Watercolour', themeColor: '#c8d2de', darkThemeColor: '#071828',
+        title: 'Coastal Dawn', price: '€85', size: 'A4', themeColor: '#c8d2de', darkThemeColor: '#071828',
         description: 'The delicate interplay of fog rolling over the morning sea.\n\nSoft washes of pale blues and greys create an ethereal atmosphere.',
         images: ['/images/art/Still Standing/1.png', '/images/art/Still Standing/2.png', '/images/art/Still Standing/3.png', '/images/art/Still Standing/4.png']
       }
@@ -71,22 +71,22 @@ const collectionsData = [
     description: 'A tribute to rugged peaks, sheltered valleys, and the unwavering presence of the mountains.',
     artworks: [
       {
-        title: 'High Peak', price: '€78', size: 'A4 Original Watercolour', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
+        title: 'High Peak', price: '€78', size: 'A4', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
         description: 'Capturing the awe-inspiring majesty of towering summits.\n\nBold contrasts and crisp edges define the rugged terrain against a clear, expansive sky.',
         images: ['/images/art/A Brief Moment/1.png', '/images/art/A Brief Moment/2.png', '/images/art/A Brief Moment/3.png', '/images/art/A Brief Moment/4.png', '/images/art/A Brief Moment/5.png']
       },
       {
-        title: 'Valley Shadow', price: '€78', size: 'A4 Original Watercolour', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
+        title: 'Valley Shadow', price: '€78', size: 'A4', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
         description: 'The quiet, sheltered spaces between mountains as the sun sets.\n\nDeep, earthy shadows stretch across the valley floor, creating a sense of safety and grounding warmth.',
         images: ['/images/art/Somewhere in Blue/1.png', '/images/art/Somewhere in Blue/2.png', '/images/art/Somewhere in Blue/3.png', '/images/art/Somewhere in Blue/4.png']
       },
       {
-        title: 'Stone Path', price: '€78', size: 'A4 Original Watercolour', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
+        title: 'Stone Path', price: '€78', size: 'A4', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
         description: 'A journey through ancient, rocky landscapes.\n\nTextured brushwork brings to life the rough, enduring surface of mountain paths carved over millennia.',
         images: ['/images/art/Still Standing/1.png', '/images/art/Still Standing/2.png', '/images/art/Still Standing/3.png', '/images/art/Still Standing/4.png']
       },
       {
-        title: 'Quiet Ridge', price: '€85', size: 'A4 Original Watercolour', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
+        title: 'Quiet Ridge', price: '€85', size: 'A4', themeColor: '#f4f7fb', darkThemeColor: '#0c2e45',
         description: 'A journey through ancient, rocky landscapes.\n\nTextured brushwork brings to life the rough, enduring surface of mountain paths carved over millennia.',
         images: ['/images/art/Still Standing/1.png', '/images/art/Still Standing/2.png', '/images/art/Still Standing/3.png', '/images/art/Still Standing/4.png']
       }
