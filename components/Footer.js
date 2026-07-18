@@ -67,8 +67,8 @@ export default function Footer() {
             <div className="w-4 h-[2px] bg-[#08121f] dark:bg-ivory" />
             Connect
           </span>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-base md:text-lg font-light text-[#08121f] dark:text-ivory hover:text-[#b8860b] dark:hover:text-gold hover:-translate-x-2 transition-all duration-300 inline-block">Instagram</a>
-          <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="text-base md:text-lg font-light text-[#08121f] dark:text-ivory hover:text-[#b8860b] dark:hover:text-gold hover:-translate-x-2 transition-all duration-300 inline-block">Pinterest</a>
+          <a href="https://www.instagram.com/asharodriguesartistry/" target="_blank" rel="noopener noreferrer" className="text-base md:text-lg font-light text-[#08121f] dark:text-ivory hover:text-[#b8860b] dark:hover:text-gold hover:-translate-x-2 transition-all duration-300 inline-block">Instagram</a>
+          <a href="https://de.pinterest.com/asharodriguesartistry/" target="_blank" rel="noopener noreferrer" className="text-base md:text-lg font-light text-[#08121f] dark:text-ivory hover:text-[#b8860b] dark:hover:text-gold hover:-translate-x-2 transition-all duration-300 inline-block">Pinterest</a>
           <Link href="/connect" className="text-base md:text-lg font-light text-[#08121f] dark:text-ivory hover:text-[#b8860b] dark:hover:text-gold hover:-translate-x-2 transition-all duration-300 inline-block">Email Studio</Link>
         </div>
 

@@ -118,7 +118,7 @@ export default function Home() {
             </p>
 
             <div>
-              <Link href="/about" className="group inline-flex items-center justify-center px-10 py-4 glass-panel text-prussian dark:bg-gold dark:text-prussian rounded-none hover:bg-white/60 dark:hover:bg-transparent dark:hover:text-gold transition-all duration-500 shadow-xl hover:shadow-2xl text-[10px] uppercase tracking-[0.3em]">
+              <Link href="/about" className="group inline-flex items-center justify-center px-10 py-4 bg-transparent border border-prussian/30 dark:border-gold text-prussian dark:text-gold rounded-none hover:bg-white/40 backdrop-blur-md hover:text-prussian dark:hover:bg-gold dark:hover:text-prussian transition-all duration-500 shadow-xl hover:shadow-2xl text-[10px] uppercase tracking-[0.3em]">
                 <span>Read The Story</span>
                 <span className="ml-4 group-hover:translate-x-2 transition-transform duration-500">→</span>
               </Link>

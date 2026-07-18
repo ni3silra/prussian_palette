@@ -59,26 +59,21 @@ export default function RootLayout({ children }) {
         className="antialiased relative font-body text-gray-800 dark:text-[#f0ede8] transition-colors duration-300 overflow-x-hidden"
         suppressHydrationWarning
       >
-        {/* Dynamic Premium Motion Background */}
-        <div className="fixed inset-0 z-[-5] bg-gradient-to-b from-[#eef2f6] via-[#e2eaf2] to-[#d6e1ec] dark:bg-none dark:bg-[#0a0f14] transition-all duration-700"></div>
+        {/* Ultra Premium Solid Base */}
+        <div className="fixed inset-0 z-[-5] bg-[#FDFCF8] dark:bg-[#0C0C0C] transition-colors duration-700"></div>
 
-        {/* Winter Magic Snowfall (Light Mode Only) */}
-        <div className="fixed inset-0 z-[-4] pointer-events-none dark:hidden">
-          <div className="absolute inset-0 bg-snow-1 opacity-80"></div>
-          <div className="absolute inset-0 bg-snow-2 opacity-100"></div>
-          <div className="absolute inset-0 bg-snow-3 opacity-100"></div>
+        {/* Soft Watercolor Texture Blobs */}
+        <div className="fixed inset-0 z-[-4] opacity-70 dark:opacity-20 pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-opacity duration-700">
+          <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-gradient-to-br from-[#e0e8f0]/40 to-transparent rounded-full blur-[100px]"></div>
+          <div className="absolute top-[20%] right-[-5%] w-[50vw] h-[50vw] bg-gradient-to-bl from-[#f4f7fb]/50 to-transparent rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-15%] left-[10%] w-[70vw] h-[70vw] bg-gradient-to-tr from-[#e8e2d9]/40 to-transparent rounded-full blur-[130px]"></div>
         </div>
 
-        <div className="fixed inset-0 z-[-3] opacity-40 dark:opacity-20 pointer-events-none transition-opacity duration-700">
-          <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-br from-[#a2b5cd]/40 dark:from-[#d4af37]/30 to-transparent rounded-full blur-[100px] animate-slow-spin"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-tl from-[#e0e8f0]/60 dark:from-[#2b3a4a]/40 to-transparent rounded-full blur-[120px] animate-reverse-slow-spin"></div>
-        </div>
-
-        {/* Premium Paper/Canvas Texture */}
+        {/* Premium Paper/Watercolor Grain */}
         <div
-          className="fixed inset-0 z-[-2] pointer-events-none mix-blend-multiply dark:mix-blend-overlay opacity-20 dark:opacity-10"
+          className="fixed inset-0 z-[-2] pointer-events-none mix-blend-multiply dark:mix-blend-overlay opacity-[0.25] dark:opacity-[0.08]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
           }}
         />
 
