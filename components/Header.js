@@ -18,11 +18,17 @@ export default function Header() {
       {/* Right: Menu + Theme Toggle */}
       <div className="flex-1 flex justify-end items-center gap-4 sm:gap-6">
         <nav className="hidden sm:flex items-center gap-6 font-accent tracking-[0.2em] uppercase text-sm sm:text-base font-light text-[#08121f] dark:text-ivory drop-shadow-sm">
-          <Link href="/about" className="hover:text-[#b8860b] dark:hover:text-gold hover:-translate-y-1 transition-all duration-300">
+          <Link href="/about" className="whitespace-nowrap hover:text-[#b8860b] dark:hover:text-gold hover:-translate-y-1 transition-all duration-300">
             The Story
           </Link>
           <Link href="/shop" className="hover:text-[#b8860b] dark:hover:text-gold hover:-translate-y-1 transition-all duration-300">
             Originals
+          </Link>
+          <Link href="/resources" className="hover:text-[#b8860b] dark:hover:text-gold hover:-translate-y-1 transition-all duration-300">
+            Resources
+          </Link>
+          <Link href="/journal" className="hover:text-[#b8860b] dark:hover:text-gold hover:-translate-y-1 transition-all duration-300">
+            Journal
           </Link>
           <Link href="/connect" className="hover:text-[#b8860b] dark:hover:text-gold hover:-translate-y-1 transition-all duration-300">
             Connect
